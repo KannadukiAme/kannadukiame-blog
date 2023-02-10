@@ -1,0 +1,29 @@
+---
+import { Image } from '@astrojs/image/components'
+import Tag from './Tag.astro'
+
+type Props = {
+  title: string
+  pubDate: string
+  heroImage: string
+  tags: Array<string>
+  slug: string
+}
+const { title, pubDate, heroImage, tags, slug } = Astro.props
+---
+
+<div class="flex flex-col gap-4 border">
+  <Image src={heroImage} alt={title} height={900} width={1600} format="jpeg" />
+  <div class="flex gap-2 ml-4">
+    {tags.map((tag) => <Tag text={tag} href={`/tags/${tag}`} />)}
+  </div>
+  <a
+    class="hover:text-sora hover:underline font-bold ml-4"
+    href={`/posts/${slug}`}
+  >
+    {title}
+  </a>
+  <div class="text-sm text-gray-400 ml-4 mb-4">
+    {pubDate}
+  </div>
+</div>

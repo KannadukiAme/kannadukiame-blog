@@ -1,0 +1,64 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content'
+import BlogLayout from '@layouts/BlogLayout.astro'
+import Cover from '@components/Cover.astro'
+import { format } from 'date-fns'
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog')
+  return blogEntries.map((blog) => ({
+    params: { slug: blog.slug },
+    props: { blog },
+  }))
+}
+
+interface Props {
+  blog: CollectionEntry<'blog'>
+}
+
+const { blog } = Astro.props
+const { Content, headings } = await blog.render()
+---
+
+<BlogLayout title={`${blog.data.title} | KannadukiAme's Blog`}>
+  <Cover
+    title={blog.data.title}
+    pubDate={format(blog.data.pubDate, 'MMM dd, yyyy')}
+    heroImage={blog.data.heroImage}
+    description={blog.data.description}
+    tags={blog.data.tags}
+    slot="hero"
+  />
+  <div class="flex w-full bg-white dark:bg-stone-900">
+    <div class="container mx-auto mt-8 mb-[80px] flex flex-row gap-10">
+      <div
+        class="basis-3/4 prose max-w-none hover:prose-a:text-sora dark:prose-invert"
+      >
+        <Content />
+      </div>
+      <div class="basis-1/4 prose hover:prose-a:text-sora dark:prose-invert">
+        <div class="sticky top-4">
+          <h2 class="ml-4">目录</h2>
+          <ul>
+            {
+              headings.map((heading) => (
+                <li
+                  class:list={[
+                    'list-none',
+                    {
+                      'text-lg': heading.depth === 1,
+                      'text-base ml-4': heading.depth === 2,
+                      'text-sm ml-8': heading.depth === 3,
+                    },
+                  ]}
+                >
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</BlogLayout>

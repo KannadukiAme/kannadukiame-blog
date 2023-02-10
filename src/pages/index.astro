@@ -1,0 +1,46 @@
+---
+import { Image } from '@astrojs/image/components'
+
+import avatar from '@assets/eruruu-avatar.jpg'
+import Layout from '@layouts/Layout.astro'
+import HashTag from '@components/HashTag.astro'
+
+const TAG_LIST = ['美少女', '动画', '游戏', '轻小说', '漫画']
+const hashTags = TAG_LIST.map((item) => {
+  return {
+    text: item,
+    href: `/tags/${item}`,
+  }
+})
+---
+
+<Layout title="KannadukiAme's Blog">
+  <div class="flex w-full bg-white dark:bg-stone-900 dark:text-gray-50">
+    <div class="container mx-auto mt-[200px] mb-[200px]">
+      <div class="flex justify-center gap-[3rem]">
+        <Image class="rounded-full w-[200px]" src={avatar} alt="eruruu" />
+        <div class="flex flex-col gap-8">
+          <h1 class="text-5xl text-sora font-bold">雨的小屋</h1>
+          <span class="text-xl text-gray-500">
+            一些美少女赏析及杂谈、动画漫画游戏轻小说等原作和改编作的品鉴...
+          </span>
+          <div>
+            <a
+              class="text-3xl inline hover:text-sora hover:underline"
+              href={'/posts'}
+            >
+              开始阅读...
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center gap-[3rem] mt-[2rem]">
+        {
+          hashTags.map((tag, index) => (
+            <HashTag key={index} text={tag.text} href={tag.href} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

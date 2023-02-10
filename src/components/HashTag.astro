@@ -1,0 +1,8 @@
+---
+const { text, href } = Astro.props
+---
+
+<a class="text-base font-bold hover:text-sora hover:underline" href={href}>
+  <i class="mr-1 fa-solid fa-hashtag"></i>
+  {text}
+</a>

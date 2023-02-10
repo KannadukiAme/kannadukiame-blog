@@ -1,0 +1,41 @@
+---
+import HashTag from './HashTag.astro'
+
+type Props = {
+  title: string
+  pubDate: string
+  heroImage: string
+  description: string
+  tags: Array<string>
+}
+
+const { title, pubDate, heroImage, description, tags } = Astro.props
+---
+
+<div
+  class="bg-cover bg-no-repeat"
+  style={{
+    backgroundImage: `url('${heroImage}')`,
+  }}
+>
+  <div class="h-full flex px-4 dark:backdrop-brightness-50">
+    <div class="flex flex-col container mx-auto self-center">
+      <div class="text-4xl font-bold md:text-6xl text-center">
+        {title}
+      </div>
+      <div class="text-base text-right font-bold mt-8">
+        {pubDate}
+      </div>
+      <div class="flex justify-center gap-[2rem]">
+        {
+          tags.map((tag, index) => (
+            <HashTag key={index} text={tag} href={`/tags/${tag}`} />
+          ))
+        }
+      </div>
+      <div class="text-xl md:text-2xl font-bold mt-12">
+        {description}
+      </div>
+    </div>
+  </div>
+</div>
