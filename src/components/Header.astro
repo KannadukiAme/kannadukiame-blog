@@ -39,7 +39,7 @@ const { pathname } = Astro.url
         ))
       }
       <div class="fill-gray-800 dark:fill-gray-100">
-        <DarkMode client:load />
+        <DarkMode client:only="react" />
       </div>
     </div>
   </div>
