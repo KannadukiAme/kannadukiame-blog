@@ -7,6 +7,22 @@ module.exports = {
       colors: {
         sora: '#58B2DC',
       },
+      fontFamily: {
+        sans: [
+          'Quotes',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Oxygen',
+          'Ubuntu',
+          'Cantarell',
+          'Fira Sans',
+          'Droid Sans',
+          'Helvetica Neue',
+          'sans-serif',
+        ],
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
