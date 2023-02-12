@@ -1,3 +1,7 @@
+---
+import siteConfig from '@utils/config'
+---
+
 <footer
   class="h-[200px] bg-gray-100 dark:bg-gray-800 flex flex-col justify-center items-center py-8 text-gray-500 dark:text-gray-300"
 >
@@ -8,5 +12,5 @@
       <i class="ml-1 fa-solid fa-up-right-from-square"></i>
     </a>
   </div>
-  <div>Copyright © 2023 KannadukiAme</div>
+  <div>{siteConfig.footer.copyright}</div>
 </footer>

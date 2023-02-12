@@ -3,6 +3,7 @@ import { CollectionEntry, getCollection } from 'astro:content'
 import BlogLayout from '@layouts/BlogLayout.astro'
 import Cover from '@components/Cover.astro'
 import { format } from 'date-fns'
+import siteConfig from '@utils/config'
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog')
@@ -20,7 +21,7 @@ const { blog } = Astro.props
 const { Content, headings } = await blog.render()
 ---
 
-<BlogLayout title={`${blog.data.title} | KannadukiAme's Blog`}>
+<BlogLayout title={`${blog.data.title} | ${siteConfig.title}`}>
   <Cover
     title={blog.data.title}
     pubDate={format(blog.data.pubDate, 'MMM dd, yyyy')}

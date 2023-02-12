@@ -4,6 +4,7 @@ import { Image } from '@astrojs/image/components'
 import avatar from '@assets/eruruu-avatar.jpg'
 import Layout from '@layouts/Layout.astro'
 import HashTag from '@components/HashTag.astro'
+import siteConfig from '@utils/config'
 
 const allPosts = await Astro.glob('/src/content/blog/*.md')
 const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())]
@@ -15,15 +16,15 @@ const hashTags = tags.map((item) => {
 })
 ---
 
-<Layout title="KannadukiAme's Blog">
+<Layout title={siteConfig.title}>
   <div class="flex w-full dark:text-gray-50">
     <div class="container mx-auto mt-[200px] mb-[200px]">
       <div class="flex justify-center gap-[3rem]">
         <Image class="rounded-full w-[200px]" src={avatar} alt="eruruu" />
         <div class="flex flex-col gap-8">
-          <h1 class="text-5xl text-sora font-bold">雨的小屋</h1>
+          <h1 class="text-5xl text-sora font-bold">{siteConfig.name}</h1>
           <span class="text-xl text-gray-600 dark:text-gray-300">
-            一些美少女赏析及杂谈、动画漫画游戏轻小说等原作和改编作的品鉴...
+            {siteConfig.description}
           </span>
           <div>
             <a
