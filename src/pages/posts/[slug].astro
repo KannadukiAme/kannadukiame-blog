@@ -5,20 +5,52 @@ import Cover from '@components/Cover.astro'
 import { format } from 'date-fns'
 import siteConfig from '@utils/config'
 import BackToTop from '@components/BackToTop.astro'
+import PrevButton from '@components/PrevButton.astro'
+import NextButton from '@components/NextButton.astro'
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog')
-  return blogEntries.map((blog) => ({
-    params: { slug: blog.slug },
-    props: { blog },
-  }))
+
+  return blogEntries.map((blog, i) => {
+    let prevIndex = i - 1
+    let nextIndex = i + 1
+
+    return {
+      params: { slug: blog.slug },
+      props: {
+        blog,
+        prev:
+          prevIndex >= 0
+            ? {
+                title: blogEntries[prevIndex].data.title,
+                slug: blogEntries[prevIndex].slug,
+              }
+            : null,
+        next:
+          nextIndex <= blogEntries.length - 1
+            ? {
+                title: blogEntries[nextIndex].data.title,
+                slug: blogEntries[nextIndex].slug,
+              }
+            : null,
+      },
+    }
+  })
 }
 
 interface Props {
   blog: CollectionEntry<'blog'>
+  prev: {
+    title: string
+    slug: 'isurugi-noe' | 'kamio-misuzu' | 'subahibi'
+  } | null
+  next: {
+    title: string
+    slug: 'isurugi-noe' | 'kamio-misuzu' | 'subahibi'
+  } | null
 }
 
-const { blog } = Astro.props
+const { blog, prev, next } = Astro.props
 const { Content, headings } = await blog.render()
 ---
 
@@ -37,6 +69,10 @@ const { Content, headings } = await blog.render()
         class="basis-3/4 prose max-w-none hover:prose-a:text-sora dark:prose-invert"
       >
         <Content />
+        <div class="flex justify-between text-xl mt-12">
+          <PrevButton text={prev && prev.title} slug={prev && prev.slug} />
+          <NextButton text={next && next.title} slug={next && next.slug} />
+        </div>
       </div>
       <div class="basis-1/4 prose hover:prose-a:text-sora dark:prose-invert">
         <div class="sticky top-4">

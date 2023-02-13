@@ -1,0 +1,10 @@
+---
+type Props = {
+  text: string | null
+  slug: string | null
+}
+
+const { text, slug } = Astro.props
+---
+
+{text || slug ? <a href={`/posts/${slug}`}>{`${text} >>`}</a> : <span />}
