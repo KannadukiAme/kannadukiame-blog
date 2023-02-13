@@ -12,19 +12,29 @@ const { pathname } = Astro.url
         {siteConfig.title}
       </div>
     </div>
-    <div class="flex px-2 py-2 space-x-6 items-center text-gray-300">
-      {
-        siteConfig.nav.map(({ name, href }, index) => (
-          <a
-            class={`font-bold hover:text-sora ${
-              pathname === href ? 'text-sora' : null
-            } `}
-            href={href}
-          >
-            {name}
-          </a>
-        ))
-      }
+    <div class="flex px-2 py-2 space-x-6 items-center">
+      <div class="flex space-x-6 text-gray-300">
+        {
+          siteConfig.nav.map(({ name, href }, index) => (
+            <a
+              class={`font-bold hover:text-sora ${
+                pathname === href ? 'text-sora' : null
+              } `}
+              href={href}
+            >
+              {name}
+            </a>
+          ))
+        }
+      </div>
+      <div class="text-gray-900 dark:text-gray-50 before:border-l before:mr-6">
+        <a
+          href="https://github.com/KannadukiAme/kannadukiame-blog-alternative"
+          target="_blank"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
       <div class="fill-gray-800 dark:fill-gray-100">
         <DarkMode client:only="react" />
       </div>
