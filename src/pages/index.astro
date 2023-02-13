@@ -8,10 +8,20 @@ import siteConfig from '@utils/config'
 
 const allPosts = await Astro.glob('/src/content/blog/*.md')
 const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())]
-const hashTags = tags.map((item) => {
+const hashTagsWithCount = tags.map((item) => {
+  let count = 0
+
+  allPosts.forEach((post) => {
+    const isIncluded = post.frontmatter.tags.includes(item)
+    if (isIncluded) {
+      count++
+    }
+  })
+
   return {
     text: item,
     href: `/tags/${item}`,
+    count,
   }
 })
 ---
@@ -38,8 +48,8 @@ const hashTags = tags.map((item) => {
       </div>
       <div class="flex justify-center gap-[3rem] mt-[2rem]">
         {
-          hashTags.map((tag, index) => (
-            <HashTag key={index} text={tag.text} href={tag.href} />
+          hashTagsWithCount.map((tag) => (
+            <HashTag text={tag.text} href={tag.href} count={tag.count} />
           ))
         }
       </div>

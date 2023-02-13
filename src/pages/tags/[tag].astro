@@ -1,0 +1,57 @@
+---
+import { format } from 'date-fns'
+import siteConfig from '@utils/config'
+import Layout from '@layouts/Layout.astro'
+import PostItem from '@components/PostItem.astro'
+import { CollectionEntry, getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog')
+  const tags = [...new Set(blogEntries.map((blog) => blog.data.tags).flat())]
+
+  return tags.map((tag) => {
+    const posts = blogEntries.filter((post) => {
+      return post.data.tags.includes(tag)
+    })
+
+    return {
+      params: {
+        tag,
+      },
+      props: { posts },
+    }
+  })
+}
+
+interface Props {
+  posts: CollectionEntry<'blog'>[]
+}
+
+const { tag } = Astro.params
+const { posts } = Astro.props
+const numOfPosts = posts.length
+---
+
+<Layout title={`${tag} | ${siteConfig.title}`}>
+  <div class="flex w-full dark:text-gray-50">
+    <div class="container mx-auto mt-8 mb-[80px]">
+      <div class="text-2xl mb-2">
+        <i class="fa-solid fa-hashtag"></i>
+        <span>{tag} ({numOfPosts})</span>
+      </div>
+      <div class="grid grid-cols-3 grid-rows-2 gap-5">
+        {
+          posts.map((post) => (
+            <PostItem
+              title={post.data.title}
+              pubDate={format(new Date(post.data.pubDate), 'MMM dd, yyyy')}
+              heroImage={post.data.heroImage}
+              tags={post.data.tags}
+              slug={post.slug}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

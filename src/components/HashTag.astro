@@ -1,8 +1,13 @@
 ---
-const { text, href } = Astro.props
+type Props = {
+  text: string
+  href: string
+  count: number
+}
+const { text, href, count = 0 } = Astro.props
 ---
 
 <a class="text-base font-bold hover:text-sora hover:underline" href={href}>
-  <i class="mr-1 fa-solid fa-hashtag"></i>
-  {text}
+  <i class="fa-solid fa-hashtag"></i>
+  <span>{text} ({count})</span>
 </a>

@@ -1,5 +1,5 @@
 ---
-import HashTag from '@components/HashTag.astro'
+import Tag from '@components/Tag.astro'
 
 type Props = {
   title: string
@@ -27,11 +27,7 @@ const { title, pubDate, heroImage, description, tags } = Astro.props
         {pubDate}
       </div>
       <div class="flex justify-center gap-[2rem]">
-        {
-          tags.map((tag, index) => (
-            <HashTag key={index} text={tag} href={`/tags/${tag}`} />
-          ))
-        }
+        {tags.map((tag) => <Tag text={tag} href={`/tags/${tag}`} />)}
       </div>
       <div class="text-xl md:text-2xl font-bold mt-12">
         {description}
