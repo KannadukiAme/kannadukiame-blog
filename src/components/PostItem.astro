@@ -26,7 +26,7 @@ const { title, pubDate, heroImage, tags, slug } = Astro.props
       {tags.map((tag) => <Tag text={tag} href={`/tags/${tag}`} />)}
     </div>
     <a
-      class="mt-4 block text-gray-900 dark:text-white hover:text-sora hover:underline font-bold"
+      class="mt-4 block text-gray-900 dark:text-white hover:text-sora hover:underline dark:hover:text-sora font-bold"
       href={`/posts/${slug}`}
     >
       {title}

@@ -4,6 +4,7 @@ import BlogLayout from '@layouts/BlogLayout.astro'
 import Cover from '@components/Cover.astro'
 import { format } from 'date-fns'
 import siteConfig from '@utils/config'
+import BackToTop from '@components/BackToTop.astro'
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog')
@@ -61,5 +62,6 @@ const { Content, headings } = await blog.render()
         </div>
       </div>
     </div>
+    <BackToTop />
   </div>
 </BlogLayout>
