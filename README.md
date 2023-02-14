@@ -1,5 +1,9 @@
-# KannadukiAme's Blog in Alternative
+# kannadukiame-blog
 
-使用 Astro 构建的 SSG 站点，计划替代使用 Next.js 构建的 SSG 站点。
+[![Netlify Status](https://api.netlify.com/api/v1/badges/228188a4-00d2-407c-af77-cc0c3b1dc103/deploy-status)](https://app.netlify.com/sites/kannadukiame/deploys)
 
-目前处于建设阶段，敬请期待。
+KannadukiAme's Blog
+
+雨的小屋
+
+![kannadukiame-blog](https://raw.githubusercontent.com/KannadukiAme/kannadukiame-blog-alternative/master/public/images/shoujo_shuumatsu_ryokou_14.jpg)
