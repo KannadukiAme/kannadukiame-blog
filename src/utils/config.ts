@@ -10,7 +10,7 @@ const siteConfig = {
     },
     {
       name: 'BLOG',
-      href: '/posts',
+      href: '/posts/',
     },
   ],
   footer: {

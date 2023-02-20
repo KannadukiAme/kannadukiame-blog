@@ -18,7 +18,7 @@ const { pathname } = Astro.url
           siteConfig.nav.map(({ name, href }, index) => (
             <a
               class={`font-bold hover:text-sora ${
-                pathname === href ? 'text-sora' : null
+                pathname === href ? 'text-sora' : ''
               } `}
               href={href}
             >
