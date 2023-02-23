@@ -9,7 +9,10 @@ import PrevButton from '@components/PrevButton.astro'
 import NextButton from '@components/NextButton.astro'
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog')
+  const blogEntries = await getCollection(
+    'blog',
+    (blog) => import.meta.env.DEV || !blog.data.draft
+  )
 
   return blogEntries.map((blog, i) => {
     let prevIndex = i - 1
@@ -42,11 +45,11 @@ interface Props {
   blog: CollectionEntry<'blog'>
   prev: {
     title: string
-    slug: 'isurugi-noe' | 'kamio-misuzu' | 'subahibi'
+    slug: string
   } | null
   next: {
     title: string
-    slug: 'isurugi-noe' | 'kamio-misuzu' | 'subahibi'
+    slug: string
   } | null
 }
 

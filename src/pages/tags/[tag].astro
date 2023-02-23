@@ -6,7 +6,10 @@ import PostItem from '@components/PostItem.astro'
 import { CollectionEntry, getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog')
+  const blogEntries = await getCollection(
+    'blog',
+    (blog) => import.meta.env.DEV || !blog.data.draft
+  )
   const tags = [...new Set(blogEntries.map((blog) => blog.data.tags).flat())]
 
   return tags.map((tag) => {

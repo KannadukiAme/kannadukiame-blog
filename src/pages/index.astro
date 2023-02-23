@@ -5,14 +5,19 @@ import avatar from '@assets/eruruu-avatar.jpg'
 import Layout from '@layouts/Layout.astro'
 import HashTag from '@components/HashTag.astro'
 import siteConfig from '@utils/config'
+import { getCollection } from 'astro:content'
 
-const allPosts = await Astro.glob('/src/content/blog/*.md')
-const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())]
+const blogEntries = await getCollection(
+  'blog',
+  (blog) => import.meta.env.DEV || !blog.data.draft
+)
+
+const tags = [...new Set(blogEntries.map((blog) => blog.data.tags).flat())]
 const hashTagsWithCount = tags.map((item) => {
   let count = 0
 
-  allPosts.forEach((post) => {
-    const isIncluded = post.frontmatter.tags.includes(item)
+  blogEntries.forEach((blog) => {
+    const isIncluded = blog.data.tags.includes(item)
     if (isIncluded) {
       count++
     }

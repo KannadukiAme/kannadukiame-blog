@@ -5,9 +5,12 @@ import { getCollection } from 'astro:content'
 import { format } from 'date-fns'
 import siteConfig from '@utils/config'
 
-const res = await getCollection('blog')
+const blogEntries = await getCollection(
+  'blog',
+  (blog) => import.meta.env.DEV || !blog.data.draft
+)
 
-const allBlogData = res
+const allBlogData = blogEntries
   .map((item) => {
     return {
       ...item.data,
