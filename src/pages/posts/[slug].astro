@@ -7,6 +7,7 @@ import siteConfig from '@utils/config'
 import BackToTop from '@components/BackToTop.astro'
 import PrevButton from '@components/PrevButton.astro'
 import NextButton from '@components/NextButton.astro'
+import TableOfContents from '@components/TableOfContents'
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection(
@@ -14,7 +15,11 @@ export async function getStaticPaths() {
     (blog) => import.meta.env.DEV || !blog.data.draft
   )
 
-  return blogEntries.map((blog, i) => {
+  const blogEntriesSortByDate = blogEntries.sort((a, b) => {
+    return b.data.pubDate.getTime() - a.data.pubDate.getTime()
+  })
+
+  return blogEntriesSortByDate.map((blog, i) => {
     let prevIndex = i - 1
     let nextIndex = i + 1
 
@@ -25,15 +30,15 @@ export async function getStaticPaths() {
         prev:
           prevIndex >= 0
             ? {
-                title: blogEntries[prevIndex].data.title,
-                slug: blogEntries[prevIndex].slug,
+                title: blogEntriesSortByDate[prevIndex].data.title,
+                slug: blogEntriesSortByDate[prevIndex].slug,
               }
             : null,
         next:
-          nextIndex <= blogEntries.length - 1
+          nextIndex <= blogEntriesSortByDate.length - 1
             ? {
-                title: blogEntries[nextIndex].data.title,
-                slug: blogEntries[nextIndex].slug,
+                title: blogEntriesSortByDate[nextIndex].data.title,
+                slug: blogEntriesSortByDate[nextIndex].slug,
               }
             : null,
       },
@@ -77,27 +82,12 @@ const { Content, headings } = await blog.render()
           <NextButton text={next && next.title} slug={next && next.slug} />
         </div>
       </div>
-      <div class="basis-1/4 prose hover:prose-a:text-sora dark:prose-invert">
+      <div
+        class="basis-1/4 prose hover:prose-a:text-sora dark:prose-invert prose-a:no-underline"
+      >
         <div class="sticky top-4">
           <h2 class="ml-4">目录</h2>
-          <ul>
-            {
-              headings.map((heading) => (
-                <li
-                  class:list={[
-                    'list-none',
-                    {
-                      'text-lg': heading.depth === 1,
-                      'text-base ml-4': heading.depth === 2,
-                      'text-sm ml-8': heading.depth === 3,
-                    },
-                  ]}
-                >
-                  <a href={`#${heading.slug}`}>{heading.text}</a>
-                </li>
-              ))
-            }
-          </ul>
+          <TableOfContents headings={headings} />
         </div>
       </div>
     </div>

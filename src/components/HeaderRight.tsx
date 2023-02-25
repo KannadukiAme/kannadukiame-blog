@@ -29,7 +29,7 @@ export default function HeaderIcons({ pathname }: Props) {
           href="https://github.com/KannadukiAme/kannadukiame-blog"
           target="_blank"
         >
-          <i className="w-4 h-4 fa-brands fa-github"></i>
+          <i className="w-4 h-4 fa-brands fa-github hover:text-gray-500"></i>
         </a>
       </div>
     </div>

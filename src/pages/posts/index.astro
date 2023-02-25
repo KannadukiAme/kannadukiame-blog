@@ -10,16 +10,9 @@ const blogEntries = await getCollection(
   (blog) => import.meta.env.DEV || !blog.data.draft
 )
 
-const allBlogData = blogEntries
-  .map((item) => {
-    return {
-      ...item.data,
-      slug: item.slug,
-    }
-  })
-  .sort((a, b) => {
-    return b.pubDate.getTime() - a.pubDate.getTime()
-  })
+const allBlogData = blogEntries.sort((a, b) => {
+  return b.data.pubDate.getTime() - a.data.pubDate.getTime()
+})
 const numOfPosts = allBlogData.length
 ---
 
@@ -29,12 +22,12 @@ const numOfPosts = allBlogData.length
       <div class="mb-2">{`共 ${numOfPosts} 篇文章`}</div>
       <div class="grid grid-cols-3 grid-rows-2 gap-5">
         {
-          allBlogData.map(({ title, pubDate, heroImage, tags, slug }) => (
+          allBlogData.map(({ data, slug }) => (
             <PostItem
-              title={title}
-              pubDate={format(pubDate, 'MMM dd, yyyy')}
-              heroImage={heroImage}
-              tags={tags}
+              title={data.title}
+              pubDate={format(data.pubDate, 'MMM dd, yyyy')}
+              heroImage={data.heroImage}
+              tags={data.tags}
               slug={slug}
             />
           ))
