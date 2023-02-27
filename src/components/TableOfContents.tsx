@@ -6,12 +6,10 @@ type TreeNode = MarkdownHeading & {
 
 function output(nodeTree: TreeNode[]) {
   return nodeTree.map((node) => (
-    <>
-      <li className="list-none">
-        <a href={`#${node.slug}`}>{node.text}</a>
-      </li>
+    <li key={node.slug} className="list-none">
+      <a href={`#${node.slug}`}>{node.text}</a>
       {node.children.length > 0 && <ul>{output(node.children)}</ul>}
-    </>
+    </li>
   ))
 }
 
