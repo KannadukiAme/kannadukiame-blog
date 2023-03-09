@@ -19,8 +19,10 @@ const numOfPosts = allBlogData.length
 <Layout title={`BLOG | ${siteConfig.title}`}>
   <div class="flex w-full dark:text-gray-50">
     <div class="container mx-auto mt-8 mb-[80px]">
-      <div class="mb-2">{`共 ${numOfPosts} 篇文章`}</div>
-      <div class="grid grid-cols-3 grid-rows-2 gap-5">
+      <div class="ml-2 my-2">{`共 ${numOfPosts} 篇文章`}</div>
+      <div
+        class="grid gap-x-0 gap-y-4 lg:grid-cols-2 lg:grid-rows-2 xl:grid-cols-3"
+      >
         {
           allBlogData.map(({ data, slug }) => (
             <PostItem

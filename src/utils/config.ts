@@ -1,5 +1,5 @@
 const siteConfig = {
-  title: "KannadukiAme's Blog",
+  title: '雨ノ詩',
   name: '雨的小屋',
   description:
     '一些美少女赏析及杂谈、动画漫画游戏轻小说等原作和改编作的品鉴...',

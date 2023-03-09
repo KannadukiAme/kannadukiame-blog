@@ -18,7 +18,9 @@ const { title, pubDate, heroImage, description, tags } = Astro.props
     backgroundImage: `url('${heroImage}')`,
   }}
 >
-  <div class="h-full flex px-4 dark:backdrop-brightness-50">
+  <div
+    class="h-full flex px-4 backdrop-contrast-50 dark:backdrop-contrast-100 dark:backdrop-brightness-50"
+  >
     <div class="flex flex-col container mx-auto self-center">
       <div class="text-4xl font-bold md:text-6xl text-center">
         {title}

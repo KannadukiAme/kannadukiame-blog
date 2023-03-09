@@ -72,22 +72,22 @@ const { Content, headings } = await blog.render()
     slot="hero"
   />
   <div class="flex w-full bg-gray-50 dark:bg-gray-900">
-    <div class="container mx-auto mt-8 mb-[80px] flex flex-row gap-10">
+    <div class="container mx-auto mb-[80px] md:flex gap-10">
       <div
-        class="basis-3/4 prose max-w-none hover:prose-a:text-sora dark:prose-invert"
+        class="md:flex-none md:order-last prose hover:prose-a:text-sora dark:prose-invert prose-a:no-underline mr-2"
       >
-        <Content />
-        <div class="flex justify-between text-xl mt-12">
-          <PrevButton text={prev && prev.title} slug={prev && prev.slug} />
-          <NextButton text={next && next.title} slug={next && next.slug} />
+        <div class="md:sticky md:top-4 md:w-40">
+          <h2 class="ml-2">目录</h2>
+          <TableOfContents headings={headings} />
         </div>
       </div>
       <div
-        class="basis-1/4 prose hover:prose-a:text-sora dark:prose-invert prose-a:no-underline"
+        class="md:flex-shrink prose max-w-none hover:prose-a:text-sora prose-a:no-underline dark:prose-invert mx-2 mt-8"
       >
-        <div class="sticky top-4">
-          <h2 class="ml-4">目录</h2>
-          <TableOfContents headings={headings} />
+        <Content />
+        <div class="lg:flex justify-between text-base lg:text-xl mt-12">
+          <PrevButton text={prev && prev.title} slug={prev && prev.slug} />
+          <NextButton text={next && next.title} slug={next && next.slug} />
         </div>
       </div>
     </div>
