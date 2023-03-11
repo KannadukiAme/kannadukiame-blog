@@ -4,35 +4,43 @@ import Tag from '@components/Tag.astro'
 
 type Props = {
   title: string
+  description: string
   pubDate: string
   heroImage: string
   tags: Array<string>
   slug: string
 }
-const { title, pubDate, heroImage, tags, slug } = Astro.props
+const { title, description, pubDate, heroImage, tags, slug } = Astro.props
 ---
 
-<div class="flex flex-col shadow-md rounded bg-white dark:bg-gray-800 mx-2">
-  <Image
-    class="rounded-t"
-    src={heroImage}
-    alt={title}
-    height={900}
-    width={1600}
-    format="jpeg"
-  />
-  <div class="px-8 py-8">
-    <div class="flex gap-2">
+<div class="shadow-md rounded bg-white dark:bg-gray-800">
+  <a href={`/posts/${slug}`}>
+    <Image
+      class="rounded-t"
+      src={heroImage}
+      alt={title}
+      height={900}
+      width={1600}
+      format="jpeg"
+    />
+  </a>
+  <div class="p-6">
+    <div class="flex gap-x-2">
       {tags.map((tag) => <Tag text={tag} href={`/tags/${tag}`} />)}
     </div>
-    <a
-      class="mt-4 block text-gray-900 dark:text-white hover:text-sora hover:underline dark:hover:text-sora font-bold"
-      href={`/posts/${slug}`}
-    >
-      {title}
-    </a>
-    <div class="mt-4 text-sm text-gray-400">
+    <h2 class="mt-4">
+      <a
+        class="text-gray-900 text-xl dark:text-white hover:text-sora hover:underline dark:hover:text-sora font-bold"
+        href={`/posts/${slug}`}
+      >
+        {title}
+      </a>
+    </h2>
+    <p class="mt-4">
+      {description}
+    </p>
+    <p class="mt-4 text-sm text-gray-400">
       {pubDate}
-    </div>
+    </p>
   </div>
 </div>

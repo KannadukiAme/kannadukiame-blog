@@ -74,18 +74,18 @@ const { Content, headings } = await blog.render()
   <div class="flex w-full bg-gray-50 dark:bg-gray-900">
     <div class="container mx-auto mb-[80px] md:flex gap-10">
       <div
-        class="md:flex-none md:order-last prose hover:prose-a:text-sora dark:prose-invert prose-a:no-underline mr-2"
+        class="md:flex-none md:order-last prose hover:prose-a:text-sora dark:prose-invert prose-a:no-underline px-4"
       >
         <div class="md:sticky md:top-4 md:w-40">
-          <h2 class="ml-2">目录</h2>
+          <h2>目录</h2>
           <TableOfContents headings={headings} />
         </div>
       </div>
       <div
-        class="md:flex-shrink prose max-w-none hover:prose-a:text-sora prose-a:no-underline dark:prose-invert mx-2 mt-8"
+        class="md:flex-shrink prose max-w-none hover:prose-a:text-sora prose-a:no-underline dark:prose-invert px-4 pt-8"
       >
         <Content />
-        <div class="lg:flex justify-between text-base lg:text-xl mt-12">
+        <div class="xl:flex justify-between text-base xl:text-xl mt-12">
           <PrevButton text={prev && prev.title} slug={prev && prev.slug} />
           <NextButton text={next && next.title} slug={next && next.slug} />
         </div>
