@@ -32,8 +32,8 @@ const hashTagsWithCount = tags.map((item) => {
 ---
 
 <Layout title={siteConfig.title}>
-  <div class="flex dark:text-gray-50">
-    <div class="container mx-auto mt-[200px] mb-[220px]">
+  <div class="flex dark:text-gray-50 transition">
+    <div class="mx-auto mt-[200px] mb-[220px] px-4">
       <div class="flex justify-center gap-[3rem]">
         <Image
           class="rounded-full w-[180px] h-full"
@@ -42,12 +42,12 @@ const hashTagsWithCount = tags.map((item) => {
         />
         <div class="flex flex-col gap-8">
           <h1 class="text-5xl text-sora font-bold">{siteConfig.name}</h1>
-          <span class="text-xl text-gray-600 dark:text-gray-300">
+          <span class="text-xl text-gray-600 dark:text-gray-300 transition">
             {siteConfig.description}
           </span>
           <div>
             <a
-              class="text-3xl inline hover:text-sora hover:underline"
+              class="text-3xl hover:text-sora hover:underline"
               href={'/posts/'}
             >
               开始阅读...

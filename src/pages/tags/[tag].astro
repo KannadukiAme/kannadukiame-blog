@@ -2,7 +2,7 @@
 import { format } from 'date-fns'
 import siteConfig from '@utils/config'
 import Layout from '@layouts/Layout.astro'
-import PostItem from '@components/PostItem.astro'
+import PostCard from '@components/PostCard.astro'
 import { CollectionEntry, getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
@@ -54,9 +54,10 @@ const numOfPosts = posts.length
       >
         {
           posts.map((post) => (
-            <PostItem
+            <PostCard
               title={post.data.title}
-              pubDate={format(new Date(post.data.pubDate), 'MMM dd, yyyy')}
+              description={post.data.description}
+              pubDate={format(post.data.pubDate, 'yyyy . MM . dd')}
               heroImage={post.data.heroImage}
               tags={post.data.tags}
               slug={post.slug}

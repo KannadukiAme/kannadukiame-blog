@@ -6,7 +6,14 @@ type Props = {
   pathname: string
 }
 
-export default function HeaderIcons({ pathname }: Props) {
+function showMenu() {
+  const menuNav = document.getElementById('menu')
+  if (menuNav) {
+    menuNav.classList.toggle('hidden')
+  }
+}
+
+export default function HeaderRight({ pathname }: Props) {
   return (
     <div className="flex px-2 py-2 space-x-6 items-center">
       <div className="flex space-x-6 text-gray-300">
@@ -22,7 +29,7 @@ export default function HeaderIcons({ pathname }: Props) {
           </a>
         ))}
       </div>
-      <div className="flex space-x-6 text-gray-900 dark:text-gray-50 before:border-l before:mr-6">
+      <div className="flex space-x-6 text-gray-900 dark:text-gray-50 transition before:border-l before:mr-6">
         <Search />
         <DarkMode />
         <a

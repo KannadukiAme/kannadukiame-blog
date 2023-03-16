@@ -1,13 +1,12 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content'
-import BlogLayout from '@layouts/BlogLayout.astro'
-import Cover from '@components/Cover.astro'
-import { format } from 'date-fns'
+import Layout from '@layouts/Layout.astro'
+import { Image } from '@astrojs/image/components'
 import siteConfig from '@utils/config'
 import BackToTop from '@components/BackToTop.astro'
 import PrevButton from '@components/PrevButton.astro'
 import NextButton from '@components/NextButton.astro'
-import TableOfContents from '@components/TableOfContents'
+import { format } from 'date-fns'
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection(
@@ -62,35 +61,51 @@ const { blog, prev, next } = Astro.props
 const { Content, headings } = await blog.render()
 ---
 
-<BlogLayout title={`${blog.data.title} | ${siteConfig.title}`}>
-  <Cover
-    title={blog.data.title}
-    pubDate={format(blog.data.pubDate, 'MMM dd, yyyy')}
-    heroImage={blog.data.heroImage}
-    description={blog.data.description}
-    tags={blog.data.tags}
-    slot="hero"
-  />
-  <div class="flex w-full bg-gray-50 dark:bg-gray-900">
-    <div class="container mx-auto mb-[80px] md:flex gap-10">
-      <div
-        class="md:flex-none md:order-last prose hover:prose-a:text-sora dark:prose-invert prose-a:no-underline px-4"
-      >
-        <div class="md:sticky md:top-4 md:w-40">
-          <h2>目录</h2>
-          <TableOfContents headings={headings} />
-        </div>
-      </div>
-      <div
-        class="md:flex-shrink prose max-w-none hover:prose-a:text-sora prose-a:no-underline dark:prose-invert px-4 pt-8"
-      >
-        <Content />
-        <div class="xl:flex justify-between text-base xl:text-xl mt-12">
-          <PrevButton text={prev && prev.title} slug={prev && prev.slug} />
-          <NextButton text={next && next.title} slug={next && next.slug} />
+<Layout title={`${blog.data.title} | ${siteConfig.title}`}>
+  <div class="flex">
+    <div class="max-w-screen-lg mx-auto mb-[80px] md:flex gap-10">
+      <div class="bg-white dark:bg-gray-800 transition">
+        <Image
+          src={blog.data.heroImage}
+          alt={blog.data.title}
+          height={900}
+          width={1600}
+          format="jpeg"
+        />
+        <div class="p-8 sm:p-12">
+          <h1
+            class="text-gray-900 dark:text-gray-50 text-3xl font-bold transition"
+          >
+            {blog.data.title}
+          </h1>
+          <div class="mt-4 flex gap-x-4 text-sm">
+            {
+              blog.data.tags.map((tag) => (
+                <a class="text-sora" href={`/tags/${tag}`}>
+                  {tag}
+                </a>
+              ))
+            }
+            <div
+              class="border-l border-gray-300 dark:border-gray-500 transition"
+            >
+            </div>
+            <span class="text-gray-300 dark:text-gray-500 transition"
+              >{format(blog.data.pubDate, 'yyyy . MM . dd')}</span
+            >
+          </div>
+          <div
+            class="mt-8 md:flex-shrink prose max-w-none hover:prose-a:text-sora prose-a:no-underline dark:prose-invert transition"
+          >
+            <Content />
+            <div class="xl:flex justify-between text-base xl:text-xl mt-12">
+              <PrevButton text={prev && prev.title} slug={prev && prev.slug} />
+              <NextButton text={next && next.title} slug={next && next.slug} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <BackToTop />
   </div>
-</BlogLayout>
+</Layout>
