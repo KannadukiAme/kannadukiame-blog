@@ -98,10 +98,12 @@ const { Content, headings } = await blog.render()
             class="mt-8 md:flex-shrink prose marker:text-sora max-w-none hover:prose-a:text-sora prose-a:no-underline prose-li dark:prose-invert lg:prose-xl transition-colors"
           >
             <Content />
-            <div class="xl:flex justify-between text-base xl:text-xl mt-12">
-              <PrevButton text={prev && prev.title} slug={prev && prev.slug} />
-              <NextButton text={next && next.title} slug={next && next.slug} />
-            </div>
+          </div>
+        </div>
+        <div class="border-t p-8 sm:p-12">
+          <div class="flex justify-between text-base xl:text-xl">
+            <PrevButton text={prev && prev.title} slug={prev && prev.slug} />
+            <NextButton text={next && next.title} slug={next && next.slug} />
           </div>
         </div>
       </div>

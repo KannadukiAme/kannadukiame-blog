@@ -1,4 +1,7 @@
 ---
+import { Image } from '@astrojs/image/components'
+
+import avatar from '@assets/eruruu-avatar.jpg'
 import HeaderRight from '@components/HeaderRight'
 import siteConfig from '@utils/config'
 
@@ -6,7 +9,8 @@ const { pathname } = Astro.url
 ---
 
 <header class="flex p-4 bg-gray-50 dark:bg-gray-900 transition">
-  <div class="flex-1 flex space-x-6">
+  <div class="flex-1 flex space-x-6 items-center">
+    <Image class="rounded-full w-8 h-8" src={avatar} alt="eruruu" />
     <div class="text-gray-900 dark:text-gray-50 transition text-3xl">
       {siteConfig.title}
     </div>

@@ -33,31 +33,24 @@ const hashTagsWithCount = tags.map((item) => {
 
 <Layout title={siteConfig.title}>
   <div class="flex">
-    <div class="mx-auto mt-[200px] mb-[220px] px-4">
+    <div class="mx-auto mt-[180px] mb-[220px] px-4">
       <div class="flex justify-center gap-[3rem]">
-        <Image
-          class="rounded-full w-[180px] h-full"
-          src={avatar}
-          alt="eruruu"
-        />
-        <div class="flex flex-col gap-8">
-          <h1 class="text-5xl text-sora font-bold">{siteConfig.name}</h1>
-          <span
-            class="text-xl text-gray-600 dark:text-gray-300 transition-colors"
-          >
+        <div class="flex flex-col gap-y-10">
+          <h1 class="text-6xl text-sora font-bold">{siteConfig.name}</h1>
+          <p class="text-xl text-gray-600 dark:text-gray-300 transition-colors">
             {siteConfig.description}
-          </span>
+          </p>
           <div>
             <a
-              class="text-3xl hover:text-sora hover:underline"
+              class="text-xl inline-block px-6 py-3 font-thin border-gray-300 dark:border-gray-500 bg-sora hover:bg-sky-300 text-white transition-colors"
               href={'/posts/'}
             >
-              开始阅读...
+              开始阅读
             </a>
           </div>
         </div>
       </div>
-      <div class="flex justify-center gap-[3rem] mt-[2rem]">
+      <div class="flex justify-center gap-[3rem] mt-14">
         {
           hashTagsWithCount.map((tag) => (
             <HashTag text={tag.text} href={tag.href} count={tag.count} />

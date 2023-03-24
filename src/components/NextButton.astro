@@ -7,4 +7,13 @@ type Props = {
 const { text, slug } = Astro.props
 ---
 
-{text || slug ? <a href={`/posts/${slug}`}>{`${text} >>`}</a> : <span />}
+{
+  text || slug ? (
+    <a
+      class="hover:text-sora inline-block"
+      href={`/posts/${slug}`}
+    >{`下一篇 >>`}</a>
+  ) : (
+    <span />
+  )
+}
