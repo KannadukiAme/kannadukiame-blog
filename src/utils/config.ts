@@ -7,12 +7,15 @@ const siteConfig = {
     {
       name: 'HOME',
       href: '/',
+      active: '',
     },
     {
       name: 'BLOG',
-      href: '/posts/',
+      href: '/blog/1/',
+      active: '/blog/',
     },
   ],
+  pageSize: 5,
   footer: {
     copyright: 'Copyright © 2023 KannadukiAme',
   },

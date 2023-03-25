@@ -6,15 +6,22 @@ type Props = {
   pathname: string
 }
 
+function getPrevUrl(url: string) {
+  const regex = /[\w'-]*[\\/]$/g
+  const parentPath = url.replace(regex, '')
+
+  return parentPath
+}
+
 export default function HeaderRight({ pathname }: Props) {
   return (
     <div className="flex px-2 py-2 space-x-6 items-center">
       <div className="flex space-x-6 text-gray-300">
-        {siteConfig.nav.map(({ name, href }, index) => (
+        {siteConfig.nav.map(({ name, href, active }, index) => (
           <a
             key={index}
             className={`font-bold hover:text-sora ${
-              pathname === href ? 'text-sora' : ''
+              getPrevUrl(pathname) === active ? 'text-sora' : ''
             } `}
             href={href}
           >
