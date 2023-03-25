@@ -9,4 +9,24 @@ const { title } = Astro.props
   <link href="/css/fontawesome.min.css" rel="stylesheet" />
   <link href="/css/solid.min.css" rel="stylesheet" />
   <link href="/css/brands.min.css" rel="stylesheet" />
+  <script is:inline>
+    const root = document.documentElement
+    const theme = (() => {
+      if (
+        typeof localStorage !== 'undefined' &&
+        localStorage.getItem('theme')
+      ) {
+        return localStorage.getItem('theme')
+      }
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
+      }
+      return 'light'
+    })()
+    if (theme === 'light') {
+      root.classList.remove('dark')
+    } else {
+      root.classList.add('dark')
+    }
+  </script>
 </head>

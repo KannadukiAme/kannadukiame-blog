@@ -1,7 +1,4 @@
 ---
-import { Image } from '@astrojs/image/components'
-
-import avatar from '@assets/eruruu-avatar.jpg'
 import Layout from '@layouts/Layout.astro'
 import HashTag from '@components/HashTag.astro'
 import siteConfig from '@utils/config'
@@ -37,12 +34,12 @@ const hashTagsWithCount = tags.map((item) => {
       <div class="flex justify-center gap-[3rem]">
         <div class="flex flex-col gap-y-10">
           <h1 class="text-6xl text-sora font-bold">{siteConfig.name}</h1>
-          <p class="text-xl text-gray-600 dark:text-gray-300 transition-colors">
+          <p class="text-xl text-gray-600 dark:text-gray-300">
             {siteConfig.description}
           </p>
           <div>
             <a
-              class="text-xl inline-block px-6 py-3 font-thin border-gray-300 dark:border-gray-500 bg-sora hover:bg-sky-300 text-white transition-colors"
+              class="text-xl inline-block px-6 py-3 font-thin border-gray-300 dark:border-gray-500 bg-sora hover:bg-sky-300 text-white"
               href={'/posts/'}
             >
               开始阅读

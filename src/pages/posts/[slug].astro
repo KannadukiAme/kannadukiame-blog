@@ -64,7 +64,7 @@ const { Content, headings } = await blog.render()
 <Layout title={`${blog.data.title} | ${siteConfig.title}`}>
   <div class="flex">
     <div class="max-w-screen-lg mx-auto mb-[80px] md:flex gap-10">
-      <div class="bg-white dark:bg-gray-800 transition">
+      <div class="bg-white dark:bg-gray-800">
         <Image
           src={blog.data.heroImage}
           alt={blog.data.title}
@@ -74,7 +74,7 @@ const { Content, headings } = await blog.render()
         />
         <div class="p-8 sm:p-12">
           <h1
-            class="text-gray-900 dark:text-gray-50 text-3xl lg:text-5xl font-bold transition-colors"
+            class="text-gray-900 dark:text-gray-50 text-3xl lg:text-5xl font-bold"
           >
             {blog.data.title}
           </h1>
@@ -86,22 +86,19 @@ const { Content, headings } = await blog.render()
                 </a>
               ))
             }
-            <div
-              class="border-l border-gray-300 dark:border-gray-500 transition-colors"
-            >
-            </div>
-            <span class="text-gray-300 dark:text-gray-500 transition-colors"
+            <div class="border-l border-gray-300 dark:border-gray-500"></div>
+            <span class="text-gray-300 dark:text-gray-500"
               >{format(blog.data.pubDate, 'yyyy . MM . dd')}</span
             >
           </div>
           <div
-            class="mt-8 md:flex-shrink prose marker:text-sora max-w-none hover:prose-a:text-sora prose-a:no-underline prose-li dark:prose-invert lg:prose-xl transition-colors"
+            class="mt-8 md:flex-shrink prose marker:text-sora max-w-none hover:prose-a:text-sora prose-a:no-underline prose-li dark:prose-invert lg:prose-xl"
           >
             <Content />
           </div>
         </div>
         <div class="border-t p-8 sm:p-12">
-          <div class="flex justify-between text-base xl:text-xl">
+          <div class="flex justify-between text-base lg:text-xl">
             <PrevButton text={prev && prev.title} slug={prev && prev.slug} />
             <NextButton text={next && next.title} slug={next && next.slug} />
           </div>

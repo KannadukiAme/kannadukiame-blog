@@ -12,7 +12,7 @@ type Props = {
 const { title, description, pubDate, heroImage, tags, slug } = Astro.props
 ---
 
-<div class="shadow-md rounded bg-white dark:bg-gray-800 transition-colors">
+<div class="shadow-md rounded bg-white dark:bg-gray-800">
   <a href={`/posts/${slug}`}>
     <Image
       class="rounded-t"
@@ -32,28 +32,23 @@ const { title, description, pubDate, heroImage, tags, slug } = Astro.props
           </a>
         ))
       }
-      <div
-        class="border-l border-gray-300 dark:border-gray-500 transition-colors"
-      >
-      </div>
-      <span class="text-gray-300 dark:text-gray-500 transition-colors"
-        >{pubDate}</span
-      >
+      <div class="border-l border-gray-300 dark:border-gray-500"></div>
+      <span class="text-gray-300 dark:text-gray-500">{pubDate}</span>
     </div>
     <h2 class="mt-8">
       <a
-        class="text-gray-900 text-2xl dark:text-white hover:text-sora dark:hover:text-sora font-bold transition"
+        class="text-gray-900 text-2xl dark:text-white hover:text-sora dark:hover:text-sora font-bold"
         href={`/posts/${slug}`}
       >
         {title}
       </a>
     </h2>
-    <p class="mt-8 leading-8 dark:text-gray-50 text-gray-900 transition-colors">
+    <p class="mt-8 leading-8 dark:text-gray-50 text-gray-900">
       {description}
     </p>
     <div class="mt-8">
       <a
-        class="inline-block border hover:border-sora dark:hover:border-sora px-8 py-2 font-thin border-gray-300 dark:border-gray-500 text-gray-300 dark:text-gray-500 hover:text-white hover:bg-sora dark:hover:text-white transition-colors"
+        class="inline-block border hover:border-sora dark:hover:border-sora px-8 py-2 font-thin border-gray-300 dark:border-gray-500 text-gray-300 dark:text-gray-500 hover:text-white hover:bg-sora dark:hover:text-white"
         href={`/posts/${slug}`}
       >
         阅 读

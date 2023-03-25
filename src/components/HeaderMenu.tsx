@@ -17,7 +17,7 @@ export default function HeaderMenu({ pathname }: Props) {
   return (
     <nav
       id="menu"
-      className="hidden sm:hidden bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-400 transition"
+      className="hidden sm:hidden bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-400 "
     >
       {siteConfig.nav.map((item) => (
         <a
