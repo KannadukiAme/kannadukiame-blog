@@ -4,6 +4,6 @@
 
 KannadukiAme's Blog
 
-雨的小屋
+雨ノ詩
 
 ![kannadukiame-blog](https://raw.githubusercontent.com/KannadukiAme/kannadukiame-blog/master/public/images/shoujo_shuumatsu_ryokou_14.jpg)
