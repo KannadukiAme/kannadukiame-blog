@@ -84,6 +84,31 @@ tags:
 
 白银武返回原来的世界后，由因果律造成的扭曲都被修复了。不仅如此，霞、悠阳她们也在这个世界作为转校生而加入了白银武的校园日常生活。和平的日常生活真的是来之不易，要好好地珍惜这一切，幸福地活下去吧。
 
+## 其他作品
+
+除去『Muv-Luv』 和『Muv-Luv Alternative』这两部正传之外，还有一些外传性质的作品。
+
+### Muv-Luv photonflowers\*
+
+![图9](/images/mla/9.jpg)
+
+收录 Extra 篇纯夏线的后日谭，冥夜走后的校园日常，以及其他角色的小插曲。
+
+![图10](/images/mla/10.jpg)
+
+收录 5 个角色自传的短篇作品，赎罪、レイン・ダンサーズ 、告白、チキン・ダイバーズ、继承。
+
+### Muv-Luv photonmelodies♮
+
+![图11](/images/mla/11.jpg)
+
+收录憧憬和再诞两部外传性质的作品，以及 Alternative 篇白银武返回校园的后日谭。
+
+### Muv-Luv Alternative Total Eclipse Remastered
+
+外传性质的作品，对应 2012 年放送动画 TV 『Muv-Luv Alternative Total Eclipse』。
+
 ## 参考链接
 
-- [『Muv-Luv Alternative』日文 Wiki](https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%96%E3%83%A9%E3%83%B4_%E3%82%AA%E3%83%AB%E3%82%BF%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%B4)
+- [マブラヴ オルタネイティヴ - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%96%E3%83%A9%E3%83%B4_%E3%82%AA%E3%83%AB%E3%82%BF%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%B4)
+- [誠也の部屋【マブラヴ オルタネイティヴ Windows7 対応版　攻略】 ](https://seiya-saiga.com/game/age/alternative_7.html)
