@@ -10,8 +10,7 @@ const blog = defineCollection({
       .optional()
       .transform((str) => (str ? new Date(str) : undefined)),
     description: z.string(),
-    tags: z.array(z.string()),
-    draft: z.boolean().optional(),
+    tags: z.array(z.string())
   }),
 })
 

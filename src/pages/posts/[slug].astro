@@ -1,7 +1,7 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content'
+import { type CollectionEntry, getCollection } from 'astro:content'
 import Layout from '@layouts/Layout.astro'
-import { Image } from '@astrojs/image/components'
+import { Image } from 'astro:assets'
 import siteConfig from '@utils/config'
 import BackToTop from '@components/BackToTop.astro'
 import PrevButton from '@components/PrevButton.astro'
@@ -9,10 +9,7 @@ import NextButton from '@components/NextButton.astro'
 import { format } from 'date-fns'
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection(
-    'blog',
-    (blog) => import.meta.env.DEV || !blog.data.draft
-  )
+  const blogEntries = await getCollection('blog')
 
   const blogEntriesSortByDate = blogEntries.sort((a, b) => {
     return b.data.pubDate.getTime() - a.data.pubDate.getTime()
