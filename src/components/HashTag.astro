@@ -7,7 +7,7 @@ type Props = {
 const { text, href, count = 0 } = Astro.props
 ---
 
-<a class="text-base font-bold hover:text-sora hover:underline" href={href}>
-  <i class="fa-solid fa-hashtag"></i>
+<a class="text-base font-bold hover:text-sora-600" href={href}>
+  <span class="w-5 h-5 icon-[mdi--tag] align-sub"></span>
   <span>{text} ({count})</span>
 </a>

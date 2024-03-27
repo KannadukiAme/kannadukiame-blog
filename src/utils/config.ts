@@ -1,23 +1,26 @@
 const siteConfig = {
-  title: '雨ノ詩',
-  name: '雨ノ詩',
+  title: '雨之诗 - KannadukiAme\'s Blog',
+  heading: '雨之诗',
+  name: 'KannadukiAme\'s Blog',
   description:
-    '鉴赏美少女文化的经典作品，将美少女的魅力传达到世界的每一个角落，希望美少女的爱能温暖每一个孤独的灵魂',
+    '希望よりも熱く、絶望よりも深いもの…！愛よ！',
   nav: [
     {
       name: 'HOME',
       href: '/',
-      active: '',
     },
     {
       name: 'BLOG',
       href: '/blog/1/',
-      active: '/blog/',
+    },
+    {
+      name: 'TIMELINE',
+      href: '/timeline'
     },
   ],
   pageSize: 5,
   footer: {
-    copyright: 'Copyright © 2023 KannadukiAme',
+    copyright: 'Copyright © 2023-2024 KannadukiAme',
   },
 }
 

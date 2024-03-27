@@ -67,6 +67,7 @@ const { Content, headings } = await blog.render()
           alt={blog.data.title}
           height={900}
           width={1600}
+          loading="eager"
           format="jpeg"
         />
         <div class="p-8 sm:p-12">
@@ -78,7 +79,7 @@ const { Content, headings } = await blog.render()
           <div class="mt-4 flex gap-x-4 text-sm lg:text-base">
             {
               blog.data.tags.map((tag) => (
-                <a class="text-sora" href={`/tags/${tag}`}>
+                <a class="text-sora-400 bg-sora-100 px-2" href={`/tags/${tag}`}>
                   {tag}
                 </a>
               ))
@@ -89,12 +90,12 @@ const { Content, headings } = await blog.render()
             >
           </div>
           <div
-            class="mt-8 md:flex-shrink prose marker:text-sora max-w-none hover:prose-a:text-sora prose-a:no-underline prose-li dark:prose-invert lg:prose-xl"
+            class="mt-8 md:flex-shrink prose marker:text-sora-500 max-w-none hover:prose-a:text-sora-600 prose-a:no-underline prose-li dark:prose-invert lg:prose-xl"
           >
             <Content />
           </div>
         </div>
-        <div class="border-t p-8 sm:p-12">
+        <div class="border-t border-gray-300 dark:border-gray-600 p-8 sm:p-12">
           <div class="flex justify-between text-base lg:text-xl">
             <PrevButton text={prev && prev.title} slug={prev && prev.slug} />
             <NextButton text={next && next.title} slug={next && next.slug} />

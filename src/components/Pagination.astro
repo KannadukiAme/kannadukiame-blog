@@ -24,8 +24,11 @@ function nextPage(currentPage: number) {
   <div class="bg-white dark:bg-gray-800 shadow rounded">
     <a
       class="inline-block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-      href={prevPage(currentPage)}><i class="fa-solid fa-chevron-left"></i></a
+      href={prevPage(currentPage)}
+      aria-label="Previous Page"
     >
+      <span class="w-4 h-4 icon-[fa-solid--chevron-left] align-sub"></span>
+    </a>
     {
       [...Array(lastPage)].map((value, index) => (
         <a
@@ -34,7 +37,8 @@ function nextPage(currentPage: number) {
             {
               'hover:bg-gray-100 dark:hover:bg-gray-700':
                 pathname !== `${prefixUrl}/${index + 1}/`,
-              'bg-sora text-white': pathname === `${prefixUrl}/${index + 1}/`,
+              'bg-sora-700 text-white':
+                pathname === `${prefixUrl}/${index + 1}/`,
             },
           ]}
           href={`${prefixUrl}/${index + 1}/`}
@@ -45,7 +49,10 @@ function nextPage(currentPage: number) {
     }
     <a
       class="inline-block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-      href={nextPage(currentPage)}><i class="fa-solid fa-chevron-right"></i></a
+      href={nextPage(currentPage)}
+      aria-label="Next Page"
     >
+      <span class="w-4 h-4 icon-[fa-solid--chevron-right] align-sub"></span>
+    </a>
   </div>
 </div>
