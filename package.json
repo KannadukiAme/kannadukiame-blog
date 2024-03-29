@@ -24,6 +24,7 @@
 	"devDependencies": {
 		"@iconify/json": "^2.2.196",
 		"@iconify/tailwind": "^0.1.4",
-		"@tailwindcss/typography": "^0.5.10"
+		"@tailwindcss/typography": "^0.5.10",
+		"remark-toc": "^9.0.0"
 	}
 }
