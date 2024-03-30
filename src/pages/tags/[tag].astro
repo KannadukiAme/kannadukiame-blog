@@ -6,7 +6,7 @@ import PostCard from '@components/PostCard.astro'
 import { type CollectionEntry, getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog')
+  const blogEntries = await getCollection('posts')
 
   const blogEntriesSortByDate = blogEntries.sort((a, b) => {
     return b.data.pubDate.getTime() - a.data.pubDate.getTime()
@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  posts: CollectionEntry<'blog'>[]
+  posts: CollectionEntry<'posts'>[]
 }
 
 const { tag } = Astro.params

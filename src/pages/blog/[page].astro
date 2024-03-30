@@ -12,7 +12,7 @@ type Params = {
 }
 
 export async function getStaticPaths({ paginate }: Params) {
-  const blogEntries = await getCollection('blog')
+  const blogEntries = await getCollection('posts')
 
   const allBlogData = blogEntries.sort((a, b) => {
     return b.data.pubDate.getTime() - a.data.pubDate.getTime()
@@ -22,7 +22,7 @@ export async function getStaticPaths({ paginate }: Params) {
 }
 
 interface Props {
-  page: Page<CollectionEntry<'blog'>>
+  page: Page<CollectionEntry<'posts'>>
 }
 
 const { page } = Astro.props
