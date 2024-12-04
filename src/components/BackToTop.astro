@@ -1,0 +1,32 @@
+---
+
+---
+
+<div
+  class="fixed right-8 bottom-8 text-4xl cursor-pointer text-black dark:text-white hover:text-sora-600"
+  id="backToTop"
+>
+  <span class="w-8 h-8 icon-[fa-solid--chevron-up] align-sub"></span>
+  <script>
+    const backToTop = document.querySelector<HTMLElement>('#backToTop')
+
+    if (backToTop) {
+      backToTop.style.display = 'none'
+      backToTop.addEventListener('click', () => {
+        document.body.scrollTop = 0 // For Safari
+        document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+      })
+
+      window.addEventListener('scroll', () => {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          backToTop.style.display = 'block'
+        } else {
+          backToTop.style.display = 'none'
+        }
+      })
+    }
+  </script>
+</div>

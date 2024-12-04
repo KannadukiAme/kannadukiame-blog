@@ -1,22 +1,29 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import Header from '@components/Header.svelte'
+import Footer from '@components/Footer.astro'
+import BaseHead from '@components/BaseHead.astro'
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+import { Image } from 'astro:assets'
+import avatar from '@assets/eruruu-avatar.jpg'
+
+const { title } = Astro.props
+const { pathname } = Astro.url
+---
+
+<html lang="zh-CN" class="font-common">
+  <BaseHead title={title} />
+  <body>
+    <Header pathname={pathname} client:only="svelte">
+      <Image
+        class="rounded-full w-8 h-8"
+        loading="eager"
+        src={avatar}
+        alt="logo"
+      />
+    </Header>
+    <main class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

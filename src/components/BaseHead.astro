@@ -1,0 +1,29 @@
+---
+const { title } = Astro.props
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <script is:inline>
+    const root = document.documentElement
+    const theme = (() => {
+      if (
+        typeof localStorage !== 'undefined' &&
+        localStorage.getItem('theme')
+      ) {
+        return localStorage.getItem('theme')
+      }
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
+      }
+      return 'light'
+    })()
+    if (theme === 'light') {
+      root.classList.remove('dark')
+    } else {
+      root.classList.add('dark')
+    }
+  </script>
+</head>

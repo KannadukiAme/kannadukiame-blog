@@ -1,0 +1,108 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content'
+import Layout from '@layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import siteConfig from '@utils/config'
+import BackToTop from '@components/BackToTop.astro'
+import PrevButton from '@components/PrevButton.astro'
+import NextButton from '@components/NextButton.astro'
+import { format } from 'date-fns'
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('posts')
+
+  const blogEntriesSortByDate = blogEntries.sort((a, b) => {
+    return b.data.pubDate.getTime() - a.data.pubDate.getTime()
+  })
+
+  return blogEntriesSortByDate.map((blog, i) => {
+    let prevIndex = i - 1
+    let nextIndex = i + 1
+
+    return {
+      params: { slug: blog.id },
+      props: {
+        blog,
+        prev:
+          prevIndex >= 0
+            ? {
+                title: blogEntriesSortByDate[prevIndex].data.title,
+                slug: blogEntriesSortByDate[prevIndex].id,
+              }
+            : null,
+        next:
+          nextIndex <= blogEntriesSortByDate.length - 1
+            ? {
+                title: blogEntriesSortByDate[nextIndex].data.title,
+                slug: blogEntriesSortByDate[nextIndex].id,
+              }
+            : null,
+      },
+    }
+  })
+}
+
+interface Props {
+  blog: CollectionEntry<'posts'>
+  prev: {
+    title: string
+    slug: string
+  } | null
+  next: {
+    title: string
+    slug: string
+  } | null
+}
+
+const { blog, prev, next } = Astro.props
+const { Content, headings } = await render(blog)
+---
+
+<Layout title={`${blog.data.title} | ${siteConfig.title}`}>
+  <div class="flex">
+    <div class="max-w-screen-lg mx-auto mb-[80px] md:flex gap-10">
+      <div class="bg-white dark:bg-gray-800">
+        <Image
+          src={blog.data.heroImage}
+          alt={blog.data.title}
+          height={900}
+          width={1600}
+          loading="eager"
+          format="jpeg"
+        />
+        <div class="p-8 sm:p-12">
+          <h1
+            class="text-gray-900 dark:text-gray-50 text-3xl lg:text-5xl font-bold"
+          >
+            {blog.data.title}
+          </h1>
+          <div class="mt-4 flex gap-x-4 text-sm lg:text-base">
+            {
+              blog.data.tags.map((tag) => (
+                <a class="text-sora-400 bg-sora-100 px-2" href={`/tags/${tag}`}>
+                  {tag}
+                </a>
+              ))
+            }
+            <div class="border-l border-gray-300 dark:border-gray-500"></div>
+            <span class="text-gray-300 dark:text-gray-500"
+              >{format(blog.data.pubDate, 'yyyy . MM . dd')}</span
+            >
+          </div>
+          <div
+            class="mt-8 prose marker:text-sora-500 max-w-none hover:prose-a:text-sora-600 prose-a:no-underline prose-li dark:prose-invert lg:prose-xl"
+          >
+            <Content />
+          </div>
+        </div>
+        <div class="border-t border-gray-300 dark:border-gray-600 p-8 sm:p-12">
+          <div class="flex justify-between text-base lg:text-xl">
+            <PrevButton text={prev && prev.title} slug={prev && prev.slug} />
+            <NextButton text={next && next.title} slug={next && next.slug} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <BackToTop />
+  </div>
+</Layout>

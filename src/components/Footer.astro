@@ -1,0 +1,21 @@
+---
+import siteConfig from '@utils/config'
+---
+
+<footer
+  class="bg-gray-100 dark:bg-gray-800 flex flex-col items-center p-20 text-sm md:text-base text-gray-500 dark:text-gray-300"
+>
+  <div>
+    Powered by
+    <a
+      class="text-sora-500 hover:text-sora-600 ml-1"
+      target="_blank"
+      href="https://astro.build/"
+      aria-label="Astro Build"
+    >
+      <span class="w-5 h-5 icon-[devicon-plain--astro] align-sub"></span>
+      <span>Astro</span>
+    </a>
+  </div>
+  <p>{siteConfig.footer.copyright}</p>
+</footer>

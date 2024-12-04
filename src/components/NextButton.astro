@@ -1,0 +1,21 @@
+---
+type Props = {
+  text: string | null
+  slug: string | null
+}
+
+const { text, slug } = Astro.props
+---
+
+{
+  text || slug ? (
+    <a
+      class="text-base text-gray-500 hover:text-sora-600 inline-block px-6 py-3 rounded border border-gray-300 dark:border-gray-600 hover:border-sora-600 dark:hover:border-sora-600"
+      href={`/posts/${slug}`}
+    >
+      <span>{`下一篇`}</span>
+    </a>
+  ) : (
+    <span />
+  )
+}
