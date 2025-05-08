@@ -1,0 +1,118 @@
+---
+
+---
+
+<script>
+  import * as OML2D from 'oh-my-live2d'
+  const madokaModels = [
+    '/models/210502/model.model3.json',
+    '/models/210600/model.model3.json',
+  ]
+
+  const oml2d = OML2D.loadOml2d({
+    models: [
+      {
+        path: madokaModels,
+        position: [0, 70],
+        scale: 0.15,
+        stageStyle: {
+          height: 500,
+        },
+      },
+    ],
+    statusBar: {
+      loadingIcon: 'icon-loading',
+    },
+    menus: {
+      items: [
+        {
+          id: 'Rest',
+          icon: 'icon-rest',
+          title: '休息',
+          onClick(oml2d): void {
+            oml2d.statusBarOpen(oml2d.options.statusBar?.restMessage) // 展示状态条
+            oml2d.clearTips() // 清除当前提示框内容, 并停止空闲消息播放器
+
+            // 为状态条绑定点击事件
+            oml2d.setStatusBarClickEvent(() => {
+              void oml2d.statusBarClose() // 关闭状态条
+              void oml2d.stageSlideIn() // 舞台滑入
+              oml2d.statusBarClearEvents() // 清除所有事件
+            })
+
+            void oml2d.stageSlideOut() // 舞台滑出
+          },
+        },
+        {
+          id: 'SwitchModelClothes',
+          icon: 'icon-skin',
+          title: '切换衣服',
+          onClick(oml2d): void {
+            void oml2d.loadNextModelClothes()
+          },
+        },
+        {
+          id: 'About',
+          icon: 'icon-about',
+          title: '关于',
+          onClick(): void {},
+        },
+      ],
+    },
+    tips: {
+      idleTips: {
+        message: [
+          '嗯……没关系，我可以一直陪着你。',
+          '现在这样静静地待着，好像也挺舒服的……',
+          '如果累了的话，可以靠在我肩膀上休息一会儿喔。',
+          '有时候……什么都不做，也是一种魔法吧。',
+          '我在想……要是每天都这么平静就好了。',
+          '虽然很安静，但和你在一起，就不会觉得孤单。',
+          '如果有烦恼的话，我会听你说的。',
+        ],
+      },
+      welcomeTips: {
+        message: {
+          weeHours: '这么晚还没睡……要注意身体哦。', // 00:00 - 04:59
+          daybreak: '天亮了呢，一起迎接新的一天吧。', // 05:00 - 07:59
+          morning: '早安……今天也会是温柔的一天吗？', // 08:00 - 11:59
+          noon: '中午啦，休息一下也没关系的喔。', // 12:00 - 13:59
+          afternoon: '下午好，不管遇到什么，我都会在你身边。', // 14:00 - 17:59
+          dusk: '太阳下山了……但没关系，明天还会升起的。', // 18:00 - 19:59
+          night: '晚上好，今天……过得还好吗？', // 20:00 - 21:59
+          lateNight: '夜深了，要乖乖睡觉，不然会被梦魇找上的……', // 22:00 - 23:59
+        },
+      },
+      style: {
+        filter: 'none',
+        color: '#fff',
+        fontSize: '1.25rem',
+        fontWeight: 'bold',
+        backgroundColor: '#58b2dc',
+        borderRadius: '8px',
+        padding: '12px',
+        textShadow: `
+         -1px -1px 0 #000000,
+          1px -1px 0 #000000,
+         -1px  1px 0 #000000,
+          1px  1px 0 #000000`,
+        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)', // 漫画气泡阴影
+      },
+    },
+  })
+
+  oml2d.onLoad((status) => {
+    if (status === 'loading') {
+      console.log('oh-my-live2d 正在加载')
+    } else if (status === 'success') {
+      console.log('oh-my-live2d 加载完成')
+      console.log('当前加载模型索引:', oml2d.modelIndex)
+      console.log('当前加载衣服索引:', oml2d.modelClothesIndex)
+    } else if (status === 'fail') {
+      console.error('oh-my-live2d 加载失败')
+    }
+  })
+
+  // 版本信息
+  console.log('oh-my-live2d version:', oml2d.version)
+</script>

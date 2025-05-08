@@ -2,6 +2,11 @@
 import Header from '@components/Header.svelte'
 import Footer from '@components/Footer.astro'
 import BaseHead from '@components/BaseHead.astro'
+import Live2D from '@components/Live2D.astro'
+
+interface Props {
+  title: string
+}
 
 const { title } = Astro.props
 const { pathname } = Astro.url
@@ -14,6 +19,7 @@ const { pathname } = Astro.url
     <main class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50">
       <slot />
     </main>
+    <Live2D />
     <Footer />
   </body>
 </html>
