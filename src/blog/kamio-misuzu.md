@@ -1,7 +1,7 @@
 ---
 title: 背负着古老诅咒的孤独少女——神尾観鈴
 pubDate: 2020-08-16
-heroImage: /images/kamio-misuzu-hero.jpg
+heroImage: ../assets/images/kamio-misuzu-hero.jpg
 description: KEY社泣系代表作「AIR」的女主，表面上是一个天然冒失、温柔可爱的少女但却患上了一种奇怪的病，无法与人亲近，症状发作时会疼痛地哭泣不已。原来，这一切与1000年前的那段传说有关...
 tags:
   - 美少女

@@ -1,7 +1,7 @@
 ---
 title: 寻找真实之泪的电波少女——石動乃絵
 pubDate: 2020-08-16
-heroImage: /images/isurugi-noe-hero.jpg
+heroImage: ../assets/images/isurugi-noe-hero.jpg
 description: 本作「真实之泪」的女主之一，乃絵肩负着去寻找真实之泪的使命。电波又天然的少女，幸运地邂逅了男主眞一郎，就在她的人生即将走向完美时，然而在冈妈的改动下，她的结局竟是如此悲情...
 tags:
   - 美少女

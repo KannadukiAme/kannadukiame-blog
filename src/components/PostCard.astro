@@ -5,7 +5,7 @@ type Props = {
   title: string
   description: string
   pubDate: string
-  heroImage: string
+  heroImage: ImageMetadata
   tags: Array<string>
   slug: string
 }
@@ -14,14 +14,7 @@ const { title, description, pubDate, heroImage, tags, slug } = Astro.props
 
 <div class="shadow-md rounded bg-white dark:bg-gray-800">
   <a href={`/posts/${slug}`}>
-    <Image
-      class="rounded-t"
-      src={heroImage}
-      alt={title}
-      height={900}
-      width={1600}
-      format="jpeg"
-    />
+    <Image class="rounded-t" src={heroImage} alt={title} />
   </a>
   <div class="p-8 sm:p-12">
     <div class="flex gap-x-4 text-sm">

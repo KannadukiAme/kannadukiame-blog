@@ -1,7 +1,7 @@
 ---
 title: 从世界系回顾御宅(オタク)文化的历史
 pubDate: 2023-02-22
-heroImage: /images/otaku-sekaike.jpg
+heroImage: ../assets/images/otaku-sekaike.jpg
 description: 进入新世纪二十余年，回顾过往，在御宅文化刚刚兴起的年代有这样一个特殊名词「世界系」。这个文化符号究竟有什么样的魅力呢，居然能够在宅文化圈盛行长达十年之久。
 tags:
   - 杂谈
@@ -45,7 +45,7 @@ tags:
 
 00 年代初，有这样一部作品将整个美少女游戏业界推向顶峰，那就是 Leaf 社 1997 年发行的『ToHeart』。
 
-![图4](/images/otaku-sekaikei/4.jpg)
+![图4](../assets/images/otaku-sekaikei/4.jpg)
 图 4 『ToHeart 游戏封面』
 
 作为一部校园恋爱喜剧，『ToHeart』着重描绘与美少女角色琐碎的日常生活，譬如，与青梅竹马一起上学时的场景，放学时顺路去其他地方时的场景，以及日常会话。  
