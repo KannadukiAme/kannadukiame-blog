@@ -8,10 +8,6 @@ import avatar from '@assets/madoka-avatar.png'
 
 const blogEntries = await getCollection('posts')
 
-// test *.csv output
-// const playlist = await getCollection('playlists')
-// console.log('playlist', playlist)
-
 const tags = [...new Set(blogEntries.map((blog) => blog.data.tags).flat())]
 const hashTagsWithCount = tags.map((item) => {
   let count = 0
@@ -26,7 +22,7 @@ const hashTagsWithCount = tags.map((item) => {
   return {
     text: item,
     href: `/tags/${item}`,
-    count,
+    count
   }
 })
 ---

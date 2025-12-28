@@ -39,7 +39,7 @@ const { page } = Astro.props
               title={data.title}
               description={data.description}
               pubDate={format(data.pubDate, 'yyyy . MM . dd')}
-              heroImage={data.heroImage}
+              heroImage={data.heroImage as ImageMetadata}
               tags={data.tags}
               slug={id}
             />

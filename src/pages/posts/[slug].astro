@@ -27,17 +27,17 @@ export async function getStaticPaths() {
           prevIndex >= 0
             ? {
                 title: blogEntriesSortByDate[prevIndex].data.title,
-                slug: blogEntriesSortByDate[prevIndex].id,
+                slug: blogEntriesSortByDate[prevIndex].id
               }
             : null,
         next:
           nextIndex <= blogEntriesSortByDate.length - 1
             ? {
                 title: blogEntriesSortByDate[nextIndex].data.title,
-                slug: blogEntriesSortByDate[nextIndex].id,
+                slug: blogEntriesSortByDate[nextIndex].id
               }
-            : null,
-      },
+            : null
+      }
     }
   })
 }
@@ -54,21 +54,19 @@ interface Props {
   } | null
 }
 
-const { blog, prev, next } = Astro.props
+const { blog, prev, next } = Astro.props as Props
 const { Content, headings } = await render(blog)
 ---
 
 <Layout title={`${blog.data.title} | ${siteConfig.title}`}>
   <div class="flex">
-    <div class="max-w-(--breakpoint-lg) mx-auto mb-[80px] md:flex gap-10">
+    <div class="max-w-(--breakpoint-lg) mx-auto mb-20 md:flex gap-10">
       <div class="bg-white dark:bg-gray-800">
         <Image
-          src={blog.data.heroImage}
+          src={blog.data.heroImage as ImageMetadata}
           alt={blog.data.title}
           height={900}
           width={1600}
-          loading="eager"
-          format="jpeg"
         />
         <div class="p-8 sm:p-12">
           <h1

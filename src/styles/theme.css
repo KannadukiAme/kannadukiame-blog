@@ -1,0 +1,29 @@
+@theme {
+  --color-sora-50: #f2f9fd;
+  --color-sora-100: #e4f1fa;
+  --color-sora-200: #c4e2f3;
+  --color-sora-300: #90cbe9;
+  --color-sora-400: #58b2dc;
+  --color-sora-500: #2f97c8;
+  --color-sora-600: #1f79aa;
+  --color-sora-700: #1b6189;
+  --color-sora-800: #1a5272;
+  --color-sora-900: #1b455f;
+  --color-sora-950: #122d3f;
+
+  --font-display: 'LXGW WenKai', sans-serif;
+  --font-display--font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  --font-display--font-variation-settings: 'opsz' 32;
+}
+
+/* lxgw-wenkai-latin-300-normal */
+@font-face {
+  font-family: 'LXGW WenKai';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lxgw-wenkai@latest/latin-300-normal.woff2)
+      format('woff2'),
+    url(https://cdn.jsdelivr.net/fontsource/fonts/lxgw-wenkai@latest/latin-300-normal.woff)
+      format('woff');
+}
