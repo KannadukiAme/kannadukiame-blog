@@ -7,7 +7,7 @@
 </script>
 
 <header
-  class="flex p-4 bg-gray-50 dark:bg-gray-950 border-b dark:border-gray-900 sticky top-0 z-10"
+  class="flex p-4 bg-gray-50 dark:bg-gray-950 border-b border-gray-200 dark:border-gray-900 sticky top-0 z-10"
 >
   <div class="flex-1 flex space-x-6 items-center">
     <slot />
@@ -29,7 +29,7 @@
       {/each}
     </div>
     <div
-      class="flex space-x-6 text-gray-900 dark:text-gray-50 before:border-l before:mr-6"
+      class="flex space-x-6 text-gray-900 dark:text-gray-50 before:border-l before:border-gray-200 before:mr-6"
     >
       <DarkMode />
       <a
