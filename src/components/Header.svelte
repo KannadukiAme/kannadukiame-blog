@@ -32,13 +32,6 @@
       class="flex space-x-6 text-gray-900 dark:text-gray-50 before:border-l before:border-gray-200 before:mr-6"
     >
       <DarkMode />
-      <a
-        href="https://github.com/KannadukiAme/kannadukiame-blog"
-        target="_blank"
-        aria-label="GitHub"
-      >
-        <span class="w-5 h-5 align-sub icon-[mdi--github]"></span>
-      </a>
     </div>
   </div>
 </header>

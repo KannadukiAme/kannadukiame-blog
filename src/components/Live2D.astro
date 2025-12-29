@@ -4,24 +4,20 @@
 
 <script>
   import * as OML2D from 'oh-my-live2d'
-  const madokaModels = [
-    '/models/210502/model.model3.json',
-    '/models/210600/model.model3.json',
-  ]
 
   const oml2d = OML2D.loadOml2d({
     models: [
       {
-        path: madokaModels,
+        path: '/models/200351/model.model3.json',
         position: [0, 70],
         scale: 0.15,
         stageStyle: {
-          height: 500,
-        },
-      },
+          height: 500
+        }
+      }
     ],
     statusBar: {
-      loadingIcon: 'icon-loading',
+      loadingIcon: 'icon-loading'
     },
     menus: {
       items: [
@@ -41,7 +37,7 @@
             })
 
             void oml2d.stageSlideOut() // 舞台滑出
-          },
+          }
         },
         {
           id: 'SwitchModelClothes',
@@ -49,27 +45,36 @@
           title: '切换衣服',
           onClick(oml2d): void {
             void oml2d.loadNextModelClothes()
-          },
+          }
+        },
+        {
+          id: 'face',
+          icon: 'icon-switch',
+          title: '更换表情',
+          onClick: async (oml2d) => {
+            const result = await oml2d.models.model?.expression()
+            oml2d.tipsMessage(result ? '表情切换~' : '没有可用表情哦~', 5000, 3)
+          }
         },
         {
           id: 'About',
           icon: 'icon-about',
           title: '关于',
-          onClick(): void {},
-        },
-      ],
+          onClick(): void {}
+        }
+      ]
     },
     tips: {
       idleTips: {
         message: [
-          '嗯……没关系，我可以一直陪着你。',
-          '现在这样静静地待着，好像也挺舒服的……',
-          '如果累了的话，可以靠在我肩膀上休息一会儿喔。',
-          '有时候……什么都不做，也是一种魔法吧。',
-          '我在想……要是每天都这么平静就好了。',
-          '虽然很安静，但和你在一起，就不会觉得孤单。',
-          '如果有烦恼的话，我会听你说的。',
-        ],
+          '我并不擅长战斗……但如果是为了小圆，我可以试着坚持下去。',
+          '大家能一起战斗的话，我就已经很满足了。',
+          '也许我很笨拙，但我不想再逃避了。',
+          '只要能帮上一点忙，我就不会后悔。',
+          '即使害怕，我也想站在大家身边。',
+          '如果这是守护他人的代价，我愿意接受。',
+          '我不想失去现在的日常……哪怕只是短暂的。'
+        ]
       },
       welcomeTips: {
         message: {
@@ -80,8 +85,8 @@
           afternoon: '下午好，不管遇到什么，我都会在你身边。', // 14:00 - 17:59
           dusk: '太阳下山了……但没关系，明天还会升起的。', // 18:00 - 19:59
           night: '晚上好，今天……过得还好吗？', // 20:00 - 21:59
-          lateNight: '夜深了，要乖乖睡觉，不然会被梦魇找上的……', // 22:00 - 23:59
-        },
+          lateNight: '夜深了，要乖乖睡觉，不然会被梦魇找上的……' // 22:00 - 23:59
+        }
       },
       style: {
         filter: 'none',
@@ -96,9 +101,9 @@
           1px -1px 0 #000000,
          -1px  1px 0 #000000,
           1px  1px 0 #000000`,
-        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)', // 漫画气泡阴影
-      },
-    },
+        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)' // 漫画气泡阴影
+      }
+    }
   })
 
   oml2d.onLoad((status) => {

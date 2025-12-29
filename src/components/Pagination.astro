@@ -1,22 +1,18 @@
 ---
-const { currentPage, lastPage } = Astro.props
-const { pathname } = Astro.url
+import type { Page } from 'astro'
+import { type CollectionEntry } from 'astro:content'
 
-const prefixUrl = '/blog'
-function prevPage(currentPage: number) {
-  if (currentPage === 1) {
-    return `${prefixUrl}/1/`
-  } else {
-    return `${prefixUrl}/${currentPage - 1}/`
-  }
+type Props = {
+  page: Page<CollectionEntry<'posts'>>
 }
 
-function nextPage(currentPage: number) {
-  if (currentPage === lastPage) {
-    return `${prefixUrl}/${currentPage}/`
-  } else {
-    return `${prefixUrl}/${currentPage + 1}/`
+const { page } = Astro.props
+
+function getPageUrl(pageNum: number): string {
+  if (pageNum === 1) {
+    return '/'
   }
+  return `/${pageNum}`
 }
 ---
 
@@ -24,24 +20,24 @@ function nextPage(currentPage: number) {
   <div class="bg-white dark:bg-gray-800 shadow rounded">
     <a
       class="inline-block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-      href={prevPage(currentPage)}
+      href={page.url.prev}
       aria-label="Previous Page"
     >
       <span class="w-4 h-4 icon-[fa-solid--chevron-left] align-sub"></span>
     </a>
     {
-      [...Array(lastPage)].map((value, index) => (
+      [...Array(page.lastPage)].map((value, index) => (
         <a
           class:list={[
             'inline-block px-4 py-2',
             {
               'hover:bg-gray-100 dark:hover:bg-gray-700':
-                pathname !== `${prefixUrl}/${index + 1}/`,
+                page.url.current !== getPageUrl(index + 1),
               'bg-sora-700 text-white':
-                pathname === `${prefixUrl}/${index + 1}/`,
-            },
+                page.url.current === getPageUrl(index + 1)
+            }
           ]}
-          href={`${prefixUrl}/${index + 1}/`}
+          href={getPageUrl(index + 1)}
         >
           <span>{index + 1}</span>
         </a>
@@ -49,7 +45,7 @@ function nextPage(currentPage: number) {
     }
     <a
       class="inline-block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-      href={nextPage(currentPage)}
+      href={page.url.next}
       aria-label="Next Page"
     >
       <span class="w-4 h-4 icon-[fa-solid--chevron-right] align-sub"></span>

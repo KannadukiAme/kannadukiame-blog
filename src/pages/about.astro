@@ -1,0 +1,58 @@
+---
+import Layout from '@layouts/Layout.astro'
+import siteConfig from '@utils/config'
+import { Image } from 'astro:assets'
+import avatar from '@assets/misuzu-avatar.jpg'
+---
+
+<Layout title=`ABOUT | ${siteConfig.title}`>
+  <div class="flex">
+    <div class="mx-auto mt-16 mb-60">
+      <div class="md:flex md:gap-x-8 max-w-3xl">
+        <div class="mb-8 md:flex-1 md:order-last max-w-64">
+          <Image
+            class="rounded-full border-2 border-gray-300"
+            src={avatar}
+            alt="avatar"
+          />
+        </div>
+        <div class="md:flex md:gap-12">
+          <div class="flex flex-col gap-y-9">
+            <h1 class="text-5xl font-bold">
+              {siteConfig.me}
+            </h1>
+            <p class="text-xl italic text-gray-600 dark:text-gray-300">
+              @KannadukiAme
+            </p>
+            <h2 class="text-xl">{siteConfig.introduction}</h2>
+            <p class="text-xl italic text-gray-600 dark:text-gray-300">
+              <span class="icon-[ooui--quotes-ltr]"></span>
+              {siteConfig.description}
+              <span class="icon-[ooui--quotes-rtl]"></span>
+            </p>
+            <div class="flex gap-x-8">
+              <div class="text-5xl">
+                <a
+                  href="https://steamcommunity.com/id/kannadukiame/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="icon-[mdi--steam]"></span>
+                </a>
+              </div>
+              <div class="text-5xl">
+                <a
+                  href="https://github.com/KannadukiAme"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="icon-[mdi--github]"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

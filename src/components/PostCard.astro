@@ -28,15 +28,17 @@ const { title, description, pubDate, heroImage, tags, slug } = Astro.props
       <div class="border-l border-gray-300 dark:border-gray-500"></div>
       <span class="text-gray-300 dark:text-gray-500">{pubDate}</span>
     </div>
-    <h2 class="mt-8">
+    <h2 class="font-display mt-8">
       <a
-        class="text-gray-900 text-2xl dark:text-white hover:text-sora-600 dark:hover:text-sora-600 font-bold"
+        class="text-gray-900 text-3xl dark:text-white hover:text-sora-600 dark:hover:text-sora-600 font-bold"
         href={`/posts/${slug}`}
       >
         {title}
       </a>
     </h2>
-    <p class="mt-8 leading-8 dark:text-gray-50 text-gray-900">
+    <p
+      class="font-display mt-8 text-xl leading-9 dark:text-gray-50 text-gray-900"
+    >
       {description}
     </p>
     <div class="mt-8">

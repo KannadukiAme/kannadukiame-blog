@@ -13,9 +13,9 @@ const { title } = Astro.props
 const { pathname } = Astro.url
 ---
 
-<html lang="zh-CN" class="font-common">
+<html lang="zh-CN">
   <BaseHead title={title} />
-  <body class="font-display">
+  <body>
     <Header pathname={pathname} client:only="svelte" />
     <main class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50">
       <slot />
