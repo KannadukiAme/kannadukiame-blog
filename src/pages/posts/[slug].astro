@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection, render } from 'astro:content'
 import Layout from '@layouts/Layout.astro'
 import { Image } from 'astro:assets'
 import siteConfig from '@utils/config'
+import { countWordsAndTime } from '@utils/api'
 import BackToTop from '@components/BackToTop.astro'
 import PrevButton from '@components/PrevButton.astro'
 import NextButton from '@components/NextButton.astro'
@@ -56,6 +57,8 @@ interface Props {
 
 const { blog, prev, next } = Astro.props as Props
 const { Content, headings } = await render(blog)
+
+const { wordCount, readingTime } = countWordsAndTime(blog.body)
 ---
 
 <Layout title={`${blog.data.title} | ${siteConfig.title}`}>
@@ -75,17 +78,23 @@ const { Content, headings } = await render(blog)
             {blog.data.title}
           </h1>
           <div class="mt-4 flex gap-x-4 text-sm lg:text-base">
+            <span class="text-gray-300 dark:text-gray-500">
+              {format(blog.data.pubDate, 'yyyy-MM-dd')}
+            </span>
+            <div class="border-l border-gray-300 dark:border-gray-500"></div>
             {
               blog.data.tags.map((tag) => (
-                <a class="text-sora-400 bg-sora-100 px-2" href={`/tags/${tag}`}>
-                  {tag}
+                <a class="text-sora-400 px-2" href={`/tags/${tag}`}>
+                  #{tag}
                 </a>
               ))
             }
-            <div class="border-l border-gray-300 dark:border-gray-500"></div>
-            <span class="text-gray-300 dark:text-gray-500"
-              >{format(blog.data.pubDate, 'yyyy . MM . dd')}</span
-            >
+          </div>
+          <div
+            class="mt-4 flex gap-x-4 text-sm text-gray-300 dark:text-gray-500 italic"
+          >
+            <span>{wordCount} 字数</span>
+            <span>约 {readingTime} 分钟</span>
           </div>
           <div
             class="mt-8 prose marker:text-sora-500 max-w-none hover:prose-a:text-sora-600 prose-a:no-underline prose-li dark:prose-invert lg:prose-xl"
