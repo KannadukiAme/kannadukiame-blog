@@ -70,6 +70,7 @@ const { wordCount, readingTime } = countWordsAndTime(blog.body)
           alt={blog.data.title}
           height={900}
           width={1600}
+          data-pagefind-meta="image[src], image_alt[alt]"
         />
         <div class="p-8 sm:p-12">
           <h1
@@ -96,11 +97,11 @@ const { wordCount, readingTime } = countWordsAndTime(blog.body)
             <span>{wordCount} 字数</span>
             <span>约 {readingTime} 分钟</span>
           </div>
-          <div
-            class="mt-8 prose marker:text-sora-500 max-w-none hover:prose-a:text-sora-600 prose-a:no-underline prose-li dark:prose-invert lg:prose-xl"
+          <article
+            class="mt-8 prose prose-sora lg:prose-xl dark:prose-invert max-w-none prose-a:hover:text-sora-600 prose-a:no-underline"
           >
             <Content />
-          </div>
+          </article>
         </div>
         <div class="border-t border-gray-300 dark:border-gray-600 p-8 sm:p-12">
           <div class="flex justify-between text-base lg:text-xl">

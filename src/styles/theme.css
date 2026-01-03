@@ -27,3 +27,38 @@
     url(https://cdn.jsdelivr.net/fontsource/fonts/lxgw-wenkai@latest/latin-300-normal.woff)
       format('woff');
 }
+
+@utility prose-sora {
+  /* --tw-prose-body: var(--color-sora-800); */
+  /* --tw-prose-headings: var(--color-sora-900); */
+  --tw-prose-lead: var(--color-sora-700);
+  --tw-prose-links: var(--color-sora-900);
+  /* --tw-prose-bold: var(--color-sora-900); */
+  --tw-prose-counters: var(--color-sora-600);
+  --tw-prose-bullets: var(--color-sora-400);
+  --tw-prose-hr: var(--color-sora-300);
+  /* --tw-prose-quotes: var(--color-sora-900); */
+  --tw-prose-quote-borders: var(--color-sora-300);
+  --tw-prose-captions: var(--color-sora-700);
+  --tw-prose-code: var(--color-sora-900);
+  --tw-prose-pre-code: var(--color-sora-100);
+  --tw-prose-pre-bg: var(--color-sora-900);
+  --tw-prose-th-borders: var(--color-sora-300);
+  --tw-prose-td-borders: var(--color-sora-200);
+  /* --tw-prose-invert-body: var(--color-sora-200); */
+  /* --tw-prose-invert-headings: var(--color-white); */
+  --tw-prose-invert-lead: var(--color-sora-300);
+  --tw-prose-invert-links: var(--color-white);
+  /* --tw-prose-invert-bold: var(--color-white); */
+  --tw-prose-invert-counters: var(--color-sora-400);
+  --tw-prose-invert-bullets: var(--color-sora-600);
+  --tw-prose-invert-hr: var(--color-sora-700);
+  /* --tw-prose-invert-quotes: var(--color-sora-100); */
+  --tw-prose-invert-quote-borders: var(--color-sora-700);
+  --tw-prose-invert-captions: var(--color-sora-400);
+  --tw-prose-invert-code: var(--color-white);
+  --tw-prose-invert-pre-code: var(--color-sora-300);
+  --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
+  --tw-prose-invert-th-borders: var(--color-sora-600);
+  --tw-prose-invert-td-borders: var(--color-sora-700);
+}

@@ -19,20 +19,32 @@ export async function getStaticPaths({ paginate }: Params) {
     return b.data.pubDate.getTime() - a.data.pubDate.getTime()
   })
 
-  return paginate(allBlogData, { pageSize: siteConfig.pageSize })
+  const tags = [...new Set(allBlogData.map((blog) => blog.data.tags).flat())]
+
+  return tags.flatMap((tag) => {
+    const filteredPosts = allBlogData.filter((post) =>
+      post.data.tags.includes(tag)
+    )
+    return paginate(filteredPosts, {
+      params: { tag },
+      pageSize: siteConfig.pageSize
+    })
+  })
 }
 
 interface Props {
   page: Page<CollectionEntry<'posts'>>
 }
 
+const { tag } = Astro.params
 const { page } = Astro.props
+const prefix = `tags/${tag}`
 ---
 
-<Layout title={`${siteConfig.title}`}>
+<Layout title={`#${tag} | ${siteConfig.title}`}>
   <div class="flex" data-pagefind-ignore>
     <div class="mx-auto max-w-(--breakpoint-md) mt-8 mb-32">
-      <Pagination page={page} prefix="" />
+      <Pagination page={page} prefix={prefix} />
       <div class="grid gap-y-4 mx-2 grid-cols-1 mt-4">
         {
           page.data.map(({ body, data, id }) => (
