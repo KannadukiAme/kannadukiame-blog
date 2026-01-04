@@ -2,18 +2,14 @@
   import { writable } from 'svelte/store'
   let isDarkMode = writable<boolean | null>(null)
 
-	$effect(() => {
-		$isDarkMode = localStorage.getItem('darkMode') === 'true'
-	})
+  $effect(() => {
+    $isDarkMode = localStorage.getItem('darkMode') === 'true'
+  })
 
-	$effect(() => {
-		if ($isDarkMode) {
-			document.documentElement.setAttribute('data-mode', 'dark')
-		} else {
-			document.documentElement.setAttribute('data-mode', 'light')
-		}
-		localStorage.setItem('darkMode', String($isDarkMode))
-	})
+  $effect(() => {
+    localStorage.setItem('darkMode', String($isDarkMode))
+    document.documentElement.dataset.mode = $isDarkMode ? 'dark' : 'light'
+  })
 </script>
 
 <button
