@@ -1,7 +1,7 @@
 ---
 import siteConfig from '@utils/config'
 import DarkMode from './DarkMode.svelte'
-import SearchBox from './SearchBox.astro'
+import SearchButton from './SearchButton.astro'
 
 type Props = {
   pathname: string
@@ -21,7 +21,7 @@ const { pathname } = Astro.props
   </div>
   <div class="flex px-2 py-2 space-x-6 items-center">
     <div>
-      <SearchBox />
+      <SearchButton />
     </div>
     <div class="flex space-x-6 text-gray-300">
       <div class="flex space-x-6 text-gray-300">

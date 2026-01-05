@@ -1,0 +1,133 @@
+---
+import Pagefind from 'astro-pagefind/components/Search'
+---
+
+<button
+  id="search-open"
+  aria-label="search"
+  class="px-4 py-2 text-gray-500 dark:bg-gray-900 cursor-pointer bg-gray-100 hover:ring hover:ring-sora-500 rounded-md"
+>
+  <span class="w-5 h-5 align-sub icon-[material-symbols--search]"></span>
+  <span>Search</span>
+</button>
+
+<div
+  id="search-modal"
+  class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-md"
+>
+  <div class="absolute inset-0" data-close></div>
+  <div
+    class="relative mx-auto mt-[10vh] w-full max-w-3xl rounded-xl bg-white dark:bg-gray-900 shadow-lg px-6 py-4"
+  >
+    <Pagefind
+      id="search"
+      className="pagefind-ui w-full"
+      uiOptions={{ showImages: true }}
+    />
+  </div>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    function openModal() {
+      modal.classList.remove('hidden')
+      document.body.classList.add('overflow-hidden')
+      requestAnimationFrame(() => {
+        const input = modal.querySelector(
+          '.pagefind-ui__search-input'
+        ) as HTMLInputElement
+        if (input) {
+          input.focus()
+          input.select()
+        }
+      })
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden')
+      document.body.classList.remove('overflow-hidden')
+    }
+
+    const modal = document.getElementById('search-modal')
+    const openBtn = document.getElementById('search-open')
+
+    openBtn?.addEventListener('click', openModal)
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        openModal()
+      }
+    })
+
+    modal?.addEventListener('click', (e) => {
+      if (e.target.dataset.close !== undefined) {
+        closeModal()
+      }
+    })
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+        closeModal()
+      }
+    })
+  })
+</script>
+
+<style is:global>
+  nav {
+    display: grid;
+    place-items: center;
+  }
+
+  [data-mode='dark'] .pagefind-ui {
+    --pagefind-ui-background: var(--color-gray-900);
+    --pagefind-ui-text: white;
+    --pagefind-ui-border: #4a5568;
+    --pagefind-ui-primary: #63b3ed;
+  }
+
+  .pagefind-ui {
+    --pagefind-ui-scale: 0.75;
+    --pagefind-ui-primary: navy;
+    --pagefind-ui-text: black;
+    --pagefind-ui-border: slategrey;
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0.25rem;
+    --pagefind-ui-font: sans-serif;
+  }
+
+  .pagefind-ui .pagefind-ui__form {
+    :focus {
+      outline: none;
+      border: 1px solid var(--color-sora-500);
+    }
+  }
+
+  .pagefind-ui .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 0px;
+    z-index: 9999;
+    padding: 0 2em 1em;
+    overflow-y: auto;
+    box-shadow:
+      0 10px 10px -5px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    border-bottom-right-radius: var(--pagefind-ui-border-radius);
+    border-bottom-left-radius: var(--pagefind-ui-border-radius);
+    background-color: var(--pagefind-ui-background);
+    max-height: 60vh; /* 关键：限制高度 */
+    overflow-y: auto; /* 关键：允许纵向滚动 */
+    overscroll-behavior: contain; /* 防止滚动穿透 */
+  }
+
+  .pagefind-ui .pagefind-ui__result-link {
+    color: var(--pagefind-ui-primary);
+  }
+
+  .pagefind-ui .pagefind-ui__result-excerpt {
+    color: var(--pagefind-ui-text);
+  }
+</style>
