@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions'
+import LoadingIndicator from 'astro-loading-indicator/component'
 const { title } = Astro.props
 ---
 
@@ -9,6 +10,11 @@ const { title } = Astro.props
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
   <ClientRouter />
+  <LoadingIndicator color="var(--color-sora-500)" />
+  <script
+    is:inline
+    src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"
+  ></script>
   <script is:inline>
     if (localStorage.getItem('darkMode') === 'true') {
       document.documentElement.setAttribute('data-mode', 'dark')

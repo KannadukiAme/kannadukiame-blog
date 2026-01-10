@@ -5,12 +5,12 @@
 	"Parameters": [
 		{
 			"Id": "ParamEyeLOpen",
-			"Value": 0.85,
-			"Blend": "Multiply"
+			"Value": -2.5,
+			"Blend": "Add"
 		},
 		{
 			"Id": "ParamEyeLSmile",
-			"Value": 0,
+			"Value": 1,
 			"Blend": "Add"
 		},
 		{
@@ -20,12 +20,12 @@
 		},
 		{
 			"Id": "ParamEyeROpen",
-			"Value": 0.85,
-			"Blend": "Multiply"
+			"Value": -2.5,
+			"Blend": "Add"
 		},
 		{
 			"Id": "ParamEyeRSmile",
-			"Value": 0,
+			"Value": 1,
 			"Blend": "Add"
 		},
 		{
@@ -34,23 +34,8 @@
 			"Blend": "Add"
 		},
 		{
-			"Id": "ParamEyeballForm",
-			"Value": 0,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamEyeballForm2",
-			"Value": 0,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamTear",
-			"Value": 0,
-			"Blend": "Add"
-		},
-		{
 			"Id": "ParamBrowLY",
-			"Value": -0.3,
+			"Value": -0.2,
 			"Blend": "Add"
 		},
 		{
@@ -60,57 +45,37 @@
 		},
 		{
 			"Id": "ParamBrowLX",
-			"Value": -0.6,
+			"Value": 0,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowRX",
-			"Value": -0.6,
+			"Value": 0,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowLAngle",
-			"Value": -0.4,
+			"Value": 0.38,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowRAngle",
-			"Value": -0.4,
+			"Value": 0.38,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowLForm",
-			"Value": -0.5,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamBrowRForm2",
 			"Value": 0,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowRForm",
-			"Value": -0.5,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamBrowLForm2",
-			"Value": 0,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamBrowLForm3",
-			"Value": 0,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamBrowRForm3",
 			"Value": 0,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamMouthForm",
-			"Value": 1,
+			"Value": 0,
 			"Blend": "Add"
 		},
 		{
@@ -120,12 +85,12 @@
 		},
 		{
 			"Id": "ParamMouthForm02",
-			"Value": 0,
+			"Value": -1,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamCheek",
-			"Value": -1,
+			"Value": 0.98,
 			"Blend": "Add"
 		}
 	]

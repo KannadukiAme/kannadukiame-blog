@@ -5,7 +5,7 @@
 	"Parameters": [
 		{
 			"Id": "ParamEyeLOpen",
-			"Value": 1.25,
+			"Value": 0.9,
 			"Blend": "Multiply"
 		},
 		{
@@ -15,12 +15,12 @@
 		},
 		{
 			"Id": "ParamEyeLForm",
-			"Value": 1,
+			"Value": 2,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamEyeROpen",
-			"Value": 1.2,
+			"Value": 0.9,
 			"Blend": "Multiply"
 		},
 		{
@@ -30,96 +30,71 @@
 		},
 		{
 			"Id": "ParamEyeRForm",
-			"Value": 1,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamEyeballForm",
-			"Value": -1,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamEyeballForm2",
-			"Value": 0,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamTear",
-			"Value": 0,
+			"Value": 2,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowLY",
-			"Value": 0,
+			"Value": -1,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowRY",
-			"Value": 0,
+			"Value": -1,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowLX",
-			"Value": 0,
+			"Value": 0.3,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowRX",
-			"Value": 0,
+			"Value": 0.3,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowLAngle",
-			"Value": 0,
+			"Value": 0.3,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowRAngle",
-			"Value": 0,
+			"Value": 0.3,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowLForm",
-			"Value": 1,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamBrowRForm2",
-			"Value": 0,
+			"Value": -4.2,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamBrowRForm",
+			"Value": -4.2,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamBrowShiwaLDisplay",
 			"Value": 1,
 			"Blend": "Add"
 		},
 		{
-			"Id": "ParamBrowLForm2",
-			"Value": 0,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamBrowLForm3",
-			"Value": 0,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamBrowRForm3",
+			"Id": "ParamBrowShiwaLY",
 			"Value": 0,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamMouthForm",
-			"Value": 3,
-			"Blend": "Add"
-		},
-		{
-			"Id": "ParamMouthOpenY",
-			"Value": 0,
+			"Value": -1.51,
 			"Blend": "Add"
 		},
 		{
 			"Id": "ParamMouthForm02",
+			"Value": -1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamMouthOpenY",
 			"Value": 0,
 			"Blend": "Add"
 		},
