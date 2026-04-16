@@ -21,6 +21,6 @@ const { pathname } = Astro.url
       <slot />
     </main>
     <Footer />
-    <Live2D client:only transition:persist />
+    <Live2D client:only="svelte" transition:persist />
   </body>
 </html>

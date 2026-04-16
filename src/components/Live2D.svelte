@@ -6,7 +6,11 @@
 
   let container: HTMLCanvasElement
   let app: PIXI.Application = null
-  let translateYClass = $state('translate-y-full')
+  let isOpened = $state(true)
+
+  let translateYClass = $derived.by(() => {
+    return isOpened ? 'translate-y-0' : 'translate-y-full'
+  })
 
   onMount(() => {
     app = new PIXI.Application({
@@ -31,8 +35,6 @@
       model.position.set(0, 30)
       model.motion('Motion')
       model.expression()
-
-      translateYClass = 'translate-y-0'
     })
 
     model.on('hit', (hitAreas) => {
@@ -57,15 +59,19 @@
     translateYClass
   ]}
 >
-  <!-- <div class="absolute top-2 right-2 z-10">
-    <button
-      class="bg-gray-100 dark:bg-gray-800 text-black dark:text-white rounded-full hover:cursor-pointer w-6 h-6 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
-      onclick={() => (translateYClass = 'translate-y-full')}
-      aria-label="Close Live2D Widget"
-    >
-      &times;
-    </button>
-  </div> -->
   <canvas bind:this={container} id="live2d-container" class="w-full h-full"
   ></canvas>
+</div>
+
+<div class="fixed bottom-2 left-2 z-100">
+  <button
+    class="bg-gray-100 dark:bg-gray-800 text-black w-6 h-6 dark:text-white hover:cursor-pointer flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700"
+    onclick={() => (isOpened = !isOpened)}
+    aria-label="Close Live2D Widget"
+  >
+    <span
+      class:icon-[material-symbols--close]={isOpened}
+      class:icon-[material-symbols--add]={!isOpened}
+    ></span>
+  </button>
 </div>
