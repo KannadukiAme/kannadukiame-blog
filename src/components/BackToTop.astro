@@ -8,24 +8,36 @@
 >
   <span class="w-8 h-8 icon-[fa-solid--chevron-up] align-sub"></span>
   <script>
-    const backToTop = document.querySelector<HTMLElement>('#backToTop')
+    let scrollHandler: any
 
-    if (backToTop) {
-      backToTop.style.display = 'none'
-      backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      })
+    function init() {
+      const backToTop = document.querySelector<HTMLElement>('#backToTop')
 
-      window.addEventListener('scroll', () => {
-        if (
-          document.body.scrollTop > 20 ||
-          document.documentElement.scrollTop > 20
-        ) {
-          backToTop.style.display = 'block'
-        } else {
-          backToTop.style.display = 'none'
+      if (backToTop) {
+        backToTop.style.display = 'none'
+        backToTop.onclick = () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
         }
-      })
+
+        if (scrollHandler) {
+          window.removeEventListener('scroll', scrollHandler)
+        }
+
+        scrollHandler = () => {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            backToTop.style.display = 'block'
+          } else {
+            backToTop.style.display = 'none'
+          }
+        }
+
+        window.addEventListener('scroll', scrollHandler)
+      }
     }
+
+    document.addEventListener('astro:page-load', init)
   </script>
 </div>
