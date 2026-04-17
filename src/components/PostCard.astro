@@ -37,18 +37,20 @@ const {
       </a>
     </h2>
     <div class="mt-4 sm:flex gap-x-4 text-sm">
-      <span class="text-gray-300 dark:text-gray-500">{pubDate}</span>
+      <span class="text-gray-300 dark:text-gray-500 sm:block">{pubDate}</span>
       <div
         class="border-l border-gray-300 dark:border-gray-500 hidden sm:block"
       >
       </div>
-      {
-        tags.map((tag) => (
-          <a class="text-sora-400 px-1" href={`/tags/${tag}`}>
-            #{tag}
-          </a>
-        ))
-      }
+      <div class="mt-2 sm:mt-0">
+        {
+          tags.map((tag) => (
+            <a class="text-sora-400 px-1" href={`/tags/${tag}`}>
+              #{tag}
+            </a>
+          ))
+        }
+      </div>
     </div>
     <p
       class="font-display mt-8 text-xl leading-9 dark:text-gray-50 text-gray-900"

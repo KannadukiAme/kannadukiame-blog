@@ -78,18 +78,23 @@ const { wordCount, readingTime } = countWordsAndTime(blog.body)
           >
             {blog.data.title}
           </h1>
-          <div class="mt-4 flex gap-x-4 text-sm lg:text-base">
+          <div class="mt-4 sm:flex gap-x-4 text-sm lg:text-base">
             <span class="text-gray-300 dark:text-gray-500">
               {format(blog.data.pubDate, 'yyyy-MM-dd')}
             </span>
-            <div class="border-l border-gray-300 dark:border-gray-500"></div>
-            {
-              blog.data.tags.map((tag) => (
-                <a class="text-sora-400 px-2" href={`/tags/${tag}`}>
-                  #{tag}
-                </a>
-              ))
-            }
+            <div
+              class="border-l border-gray-300 dark:border-gray-500 hidden sm:block"
+            >
+            </div>
+            <div class="mt-2 sm:mt-0">
+              {
+                blog.data.tags.map((tag) => (
+                  <a class="text-sora-400 px-2" href={`/tags/${tag}`}>
+                    #{tag}
+                  </a>
+                ))
+              }
+            </div>
           </div>
           <div
             class="mt-4 flex gap-x-4 text-sm text-gray-300 dark:text-gray-500 italic"
