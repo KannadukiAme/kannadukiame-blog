@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, fontProviders } from 'astro/config'
 import svelte from '@astrojs/svelte'
 import tailwindcss from '@tailwindcss/vite'
 import remarkToc from 'remark-toc'
@@ -12,5 +12,14 @@ export default defineConfig({
   },
   markdown: {
     remarkPlugins: [[remarkToc, { heading: '目录', maxDepth: 3 }]]
-  }
+  },
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: 'LXGW WenKai',
+      cssVariable: '--font-lxgw-wenkai',
+      styles: ['normal'],
+      weights: ['700']
+    }
+  ]
 })
