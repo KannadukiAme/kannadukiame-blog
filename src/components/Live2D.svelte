@@ -5,8 +5,9 @@
   window.PIXI = PIXI
 
   let container: HTMLCanvasElement
-  let app: PIXI.Application = null
-  let isOpened = $state(true)
+  let app: PIXI.Application
+  let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+  let isOpened = $state(!isMobile)
 
   let translateYClass = $derived.by(() => {
     return isOpened ? 'translate-y-0' : 'translate-y-full'
