@@ -6,8 +6,8 @@ const siteConfig = {
   description: '希望よりも熱く、絶望よりも深いもの…！愛よ！',
   nav: [
     {
-      name: 'HOME',
-      href: '/'
+      name: 'BLOG',
+      href: '/blog/'
     },
     {
       name: 'ABOUT',

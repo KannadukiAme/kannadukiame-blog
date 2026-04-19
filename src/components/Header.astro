@@ -8,6 +8,18 @@ type Props = {
 }
 
 const { pathname } = Astro.props
+
+const normalizePath = (path: string) =>
+  path === '/' ? '/' : path.replace(/\/+$/, '')
+
+const isActiveLink = (href: string, currentPath: string) => {
+  const link = normalizePath(href)
+  const current = normalizePath(currentPath)
+
+  return link === '/'
+    ? current === '/'
+    : current === link || current.startsWith(link + '/')
+}
 ---
 
 <header
@@ -27,9 +39,7 @@ const { pathname } = Astro.props
       <div class="flex space-x-6 text-gray-300">
         {
           siteConfig.nav.map((item) => {
-            const isActive =
-              (item.href === '/' && pathname === '/') ||
-              (item.href !== '/' && pathname.startsWith(item.href))
+            const isActive = isActiveLink(item.href, pathname)
 
             return (
               <a
