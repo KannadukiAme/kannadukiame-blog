@@ -11,7 +11,7 @@ const stats = await getBlogStats()
 <Layout title=`ABOUT | ${siteConfig.title}`>
   <div class="flex">
     <div class="mx-auto mt-16 mb-24">
-      <div class="md:flex md:gap-x-8 max-w-3xl">
+      <div class="md:flex md:gap-x-8 max-w-3xl mb-8">
         <div class="mb-8 md:flex-1 md:order-last max-w-64">
           <Image
             class="rounded-full border-2 border-gray-300"
@@ -53,42 +53,42 @@ const stats = await getBlogStats()
                 </a>
               </div>
             </div>
-            <div class="pt-8 border-t border-gray-300 dark:border-gray-600">
-              <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
-                <div class="text-center">
-                  <p class="text-4xl font-bold">
-                    {stats.totalArticles}
-                  </p>
-                  <p class="text-xl mt-2">
-                    <span class="w-6 h-6 icon-[fa7-solid--file-lines]"></span>
-                  </p>
-                </div>
-                <div class="text-center">
-                  <p class="text-4xl font-bold">
-                    {(stats.totalWords / 1000).toFixed(1)}k
-                  </p>
-                  <p class="text-xl mt-2">
-                    <span class="w-6 h-6 icon-[fa-solid--pen-fancy]"></span>
-                  </p>
-                </div>
-                <div class="text-center">
-                  <p class="text-4xl font-bold">
-                    {stats.totalImages}
-                  </p>
-                  <p class="text-xl mt-2">
-                    <span class="w-6 h-6 icon-[fa-solid--image]"></span>
-                  </p>
-                </div>
-                <div class="text-center">
-                  <p class="text-4xl font-bold">
-                    {stats.daysSinceFirstArticle}
-                  </p>
-                  <p class="text-xl mt-2">
-                    <span class="w-6 h-6 icon-[fa-solid--calendar]"></span>
-                  </p>
-                </div>
-              </div>
-            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-gray-300 dark:border-gray-600">
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div class="text-center">
+            <p class="text-4xl font-bold">
+              {stats.totalArticles}
+            </p>
+            <p class="text-xl mt-2">
+              <span class="w-6 h-6 icon-[fa7-solid--file-lines]"></span>
+            </p>
+          </div>
+          <div class="text-center">
+            <p class="text-4xl font-bold">
+              {(stats.totalWords / 1000).toFixed(1)}k
+            </p>
+            <p class="text-xl mt-2">
+              <span class="w-6 h-6 icon-[fa-solid--pen-fancy]"></span>
+            </p>
+          </div>
+          <div class="text-center">
+            <p class="text-4xl font-bold">
+              {stats.totalImages}
+            </p>
+            <p class="text-xl mt-2">
+              <span class="w-6 h-6 icon-[fa-solid--image]"></span>
+            </p>
+          </div>
+          <div class="text-center">
+            <p class="text-4xl font-bold">
+              {stats.daysSinceFirstArticle}
+            </p>
+            <p class="text-xl mt-2">
+              <span class="w-6 h-6 icon-[fa-solid--calendar]"></span>
+            </p>
           </div>
         </div>
       </div>
